@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shoreline Social House | Fine Dining in Sorrento, BC</title>
+  <meta name="description" content="Shoreline Social House — Sorrento BC's premier family-friendly fine dining restaurant on the Trans-Canada Highway. Great food, live music, beach-side patio and stunning lake views. Halfway between Vancouver & Calgary." />
+  <meta name="keywords" content="Shoreline Social House, Sorrento BC restaurant, fine dining Trans-Canada, family restaurant BC, live music Sorrento, beach patio restaurant" />
+  <meta property="og:title" content="Shoreline Social House | Fine Dining in Sorrento, BC" />
+  <meta property="og:description" content="Good Food. Good People. Good Times. The only full-service restaurant on the Trans-Canada Highway between Vancouver & Calgary." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shoreline-social-luxury.surge.sh/" />
+  <meta property="og:image" content="https://shoreline-social-sorrento.surge.sh/hero-bg.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Shoreline Social House — Fine Dining in Sorrento, BC" />
+  <meta property="og:site_name" content="Shoreline Social House" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shoreline Social House | Fine Dining in Sorrento, BC" />
+  <meta name="twitter:description" content="Good Food. Good People. Good Times. The only full-service restaurant on the Trans-Canada Highway between Vancouver & Calgary." />
+  <meta name="twitter:image" content="https://shoreline-social-sorrento.surge.sh/hero-bg.png" />
+  <link rel="icon" type="image/svg+xml" href="https://shoreline-social-sorrento.surge.sh/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="https://shoreline-social-sorrento.surge.sh/logo-circular.png" alt="Shoreline Social House Logo" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="hero">
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+    <div class="hero-bg"></div>
+    <img src="https://shoreline-social-sorrento.surge.sh/hero-bg.png" alt="Shoreline Social House" class="hero-poster-img" />
+    <div class="hero-content">
+      <div class="hero-badge">Est. 2023 · Sorrento, BC</div>
+      <h1 class="hero-title">
+        <span class="hero-title-main">Shoreline</span>
+        <span class="hero-title-sub">Social House</span>
+      </h1>
+      <p class="hero-tagline">Good Food. Good People. <em>Good Times.</em></p>
+      <p class="hero-sub">Your highway escape — halfway between Vancouver &amp; Calgary.</p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-gold" id="heroMenuBtn">Explore Menu</a>
+        <a href="https://wa.me/12506752332" target="_blank" class="btn btn-outline" id="heroWhatsappBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-dot"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ===== ANNOUNCEMENT BANNER ===== -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span>🎵 Live Music Every Weekend &nbsp;•&nbsp; 🍽️ Family-Friendly Fine Dining &nbsp;•&nbsp; 🏖️ Beach-Side Patio &nbsp;•&nbsp; 🎤 Karaoke Nights &nbsp;•&nbsp; 🌅 Stunning Lake Views &nbsp;•&nbsp; 🛣️ On Trans-Canada Highway &nbsp;•&nbsp;</span>
+      <span aria-hidden="true">🎵 Live Music Every Weekend &nbsp;•&nbsp; 🍽️ Family-Friendly Fine Dining &nbsp;•&nbsp; 🏖️ Beach-Side Patio &nbsp;•&nbsp; 🎤 Karaoke Nights &nbsp;•&nbsp; 🌅 Stunning Lake Views &nbsp;•&nbsp; 🛣️ On Trans-Canada Highway &nbsp;•&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <div class="about-center-content" data-reveal>
+        <div class="section-tag">About Us</div>
+        <h2 class="section-title">More Than a Restaurant.<br /><em>It's an Experience.</em></h2>
+        <p class="about-desc">Shoreline Social House is Sorrento's only full-service fine dining destination — reimagined by Executive Chef Ravi, with over 20 years of culinary experience spanning Canada and international cruise ships.</p>
+        <p class="about-desc">We transformed what was once a local pub into a warm, welcoming space where families, highway travellers, and the local community come together. Great food, lively events, and unforgettable views await you.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">Years Chef Experience</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">7K+</span>
+            <span class="stat-label">Daily Highway Travellers</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">Open</span>
+            <span class="stat-label">Sep – Mar (When others close)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE PILLARS ===== -->
+  <section id="experience" class="section experience-section">
+    <div class="exp-bg-pattern"></div>
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div class="section-tag">Why Choose Us</div>
+        <h2 class="section-title">Everything You Need,<br />All in One Place</h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card-container" data-reveal style="transition-delay: 0s;">
+          <div class="pillar-card">
+            <div class="pillar-card-front">
+              <div class="pillar-icon">👨‍👩‍👧‍👦</div>
+              <h3>Family Friendly</h3>
+              <div class="flip-hint">Hover to explore</div>
+            </div>
+            <div class="pillar-card-back">
+              <h3>Family Friendly</h3>
+              <p>Everyone is welcome — from toddlers to grandparents. A warm, inclusive space for the whole family to enjoy.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pillar-card-container" data-reveal style="transition-delay: 0.08s;">
+          <div class="pillar-card">
+            <div class="pillar-card-front">
+              <div class="pillar-icon">🎵</div>
+              <h3>Live Music & Karaoke</h3>
+              <div class="flip-hint">Hover to explore</div>
+            </div>
+            <div class="pillar-card-back">
+              <h3>Live Music & Karaoke</h3>
+              <p>Good vibes every weekend with live bands, local artists, and karaoke nights — promoted to all surrounding communities.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pillar-card-container" data-reveal style="transition-delay: 0.16s;">
+          <div class="pillar-card">
+            <div class="pillar-card-front">
+              <div class="pillar-icon">🏖️</div>
+              <h3>Beach-Side Patio</h3>
+              <div class="flip-hint">Hover to explore</div>
+            </div>
+            <div class="pillar-card-back">
+              <h3>Beach-Side Patio</h3>
+              <p>Relax, unwind, and enjoy the breathtaking lakeside views from our stunning outdoor beach patio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pillar-card-container" data-reveal style="transition-delay: 0.24s;">
+          <div class="pillar-card">
+            <div class="pillar-card-front">
+              <div class="pillar-icon">🛣️</div>
+              <h3>Perfect Highway Stop</h3>
+              <div class="flip-hint">Hover to explore</div>
+            </div>
+            <div class="pillar-card-back">
+              <h3>Perfect Highway Stop</h3>
+              <p>Perfectly located on the Trans-Canada Highway — the only full-service restaurant within ~50 km between Vancouver & Calgary.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pillar-card-container" data-reveal style="transition-delay: 0.32s;">
+          <div class="pillar-card">
+            <div class="pillar-card-front">
+              <div class="pillar-icon">🍳</div>
+              <h3>Breakfast Buffet</h3>
+              <div class="flip-hint">Hover to explore</div>
+            </div>
+            <div class="pillar-card-back">
+              <h3>Breakfast Buffet</h3>
+              <p>Start your day right with our hearty breakfast buffet — the perfect fuel stop for highway travellers and locals alike.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pillar-card-container" data-reveal style="transition-delay: 0.4s;">
+          <div class="pillar-card">
+            <div class="pillar-card-front">
+              <div class="pillar-icon">🍷</div>
+              <h3>Drinks & Fine Dining</h3>
+              <div class="flip-hint">Hover to explore</div>
+            </div>
+            <div class="pillar-card-back">
+              <h3>Drinks & Fine Dining</h3>
+              <p>A curated selection of beverages alongside a multi-cuisine menu crafted by a world-class executive chef.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section id="menu" class="section menu-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div class="section-tag">Our Menu</div>
+        <h2 class="section-title">Crafted with Passion,<br />Served with Pride</h2>
+        <p class="section-sub">Multi-cuisine offerings inspired by Chef Ravi's 20+ years of global culinary expertise.</p>
+      </div>
+      
+      <div class="menu-tabs" data-reveal>
+        <button class="menu-tab active" data-tab="Starters">Starters 🥗</button>
+        <button class="menu-tab" data-tab="Mains">Mains 🍛</button>
+        <button class="menu-tab" data-tab="Handhelds">Handhelds 🍔</button>
+        <button class="menu-tab" data-tab="Salads">Salads 🥗</button>
+        <button class="menu-tab" data-tab="Soups">Soups 🍲</button>
+        <button class="menu-tab" data-tab="Steak & Lamb">Steak & Lamb 🥩</button>
+        <button class="menu-tab" data-tab="Desserts">Desserts 🍰</button>
+        <button class="menu-tab" data-tab="Kids">Kids 🧒</button>
+      </div>
+
+      <div class="kids-menu-banner" id="kidsMenuBanner" data-reveal style="display: none;">
+        <span>👨‍👩‍👧‍👦</span>
+        <div>
+          <strong>Little Ones Welcome!</strong>
+          <p>Specially crafted smaller portions for our younger guests — made with the same love and quality.</p>
+        </div>
+      </div>
+
+      <div class="menu-grid" id="menuGrid" data-reveal>
+        <!-- Rendered via JS -->
+      </div>
+
+      <div class="menu-note" data-reveal>
+        <p>✨ Menu items and prices subject to seasonal change. For the latest menu, <a href="https://wa.me/12506752332" target="_blank" id="menuWhatsappLink">contact us on WhatsApp</a>.</p>
+        <a href="https://shoreline-social-sorrento.surge.sh/menu.pdf" target="_blank" class="btn btn-outline-dark" id="menuDownloadBtn">📄 View Full Menu PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery" class="section gallery-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div class="section-tag">Gallery</div>
+        <h2 class="section-title">A Feast for the Eyes</h2>
+        <p class="section-sub">Delicious food, lively events, beautiful views — see what awaits you.</p>
+      </div>
+    </div>
+    <div class="gallery-mosaic" data-reveal>
+      <div class="gallery-item gallery-large">
+        <div class="gallery-overlay"><span>Delicious Food</span></div>
+        <img src="https://shoreline-social-sorrento.surge.sh/gallery-food.png" alt="Delicious Food" class="gallery-img" />
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"><span>Live Events</span></div>
+        <img src="https://shoreline-social-sorrento.surge.sh/gallery-music.png" alt="Live Events" class="gallery-img" />
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"><span>Beautiful Views</span></div>
+        <img src="https://shoreline-social-sorrento.surge.sh/gallery-lakeview.png" alt="Beautiful Views" class="gallery-img" />
+      </div>
+      <div class="gallery-item gallery-wide">
+        <div class="gallery-overlay"><span>Beach-Side Patio</span></div>
+        <img src="https://shoreline-social-sorrento.surge.sh/gallery-patio.png" alt="Beach-Side Patio" class="gallery-img" />
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-overlay"><span>Great Memories</span></div>
+        <img src="https://shoreline-social-sorrento.surge.sh/gallery-memories.png" alt="Great Memories" class="gallery-img" />
+      </div>
+    </div>
+    <div class="gallery-cta" data-reveal>
+      <p>📸 More photos coming soon as our journey continues!</p>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" class="section testimonials-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div class="section-tag">Testimonials</div>
+        <h2 class="section-title">What Our Guests Say</h2>
+        <p class="section-sub">Real, verified Google reviews from our guests in Sorrento, BC.</p>
+      </div>
+      <div class="testimonials-container" data-reveal>
+        <button class="testimonials-prev" id="prevTestimonial" aria-label="Previous review">&#10094;</button>
+        <div class="testimonials-wrapper">
+          <div class="testimonials-slider-track" id="testimonialTrack">
+            <div class="testimonial-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars">
+                  <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testimonial-text">&ldquo;Prompt friendly service, delicious fresh food and ice cold beer. Perfect place to unwind. Love the clean glasses and friendly vibe.&rdquo;</p>
+                <div class="testimonial-meta">
+                  <div>
+                    <h4 class="testimonial-author">Wayne P.</h4>
+                    <span class="testimonial-role">Local Guide</span>
+                  </div>
+                  <div class="testimonial-source-info">
+                    <span class="testimonial-source">Google Review</span>
+                    <span class="testimonial-date">May 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars">
+                  <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testimonial-text">&ldquo;Great local spot! The fish & chips are homemade and absolutely delicious, and the service was quick and very friendly. The view from the patio area is beautiful.&rdquo;</p>
+                <div class="testimonial-meta">
+                  <div>
+                    <h4 class="testimonial-author">Jennifer L.</h4>
+                    <span class="testimonial-role">Local Resident</span>
+                  </div>
+                  <div class="testimonial-source-info">
+                    <span class="testimonial-source">Google Review</span>
+                    <span class="testimonial-date">June 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars">
+                  <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <p class="testimonial-text">&ldquo;We stopped by on our road trip and had the Prime Rib dinner. It was excellent and cooked perfectly. Great selection of craft beers and a really clean, welcoming atmosphere.&rdquo;</p>
+                <div class="testimonial-meta">
+                  <div>
+                    <h4 class="testimonial-author">Robert H.</h4>
+                    <span class="testimonial-role">Highway Traveller</span>
+                  </div>
+                  <div class="testimonial-source-info">
+                    <span class="testimonial-source">Google Review</span>
+                    <span class="testimonial-date">June 2026</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="testimonials-next" id="nextTestimonial" aria-label="Next review">&#10095;</button>
+        <div class="testimonials-dots" id="testimonialDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CALL TO ACTION BANNER ===== -->
+  <section class="cta-banner">
+    <div class="container cta-banner-content" data-reveal>
+      <h2>We're here to help make your dining experience unforgettable</h2>
+      <a href="#contact" class="btn-cta-banner">Contact us</a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT & HOURS ===== -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <div class="section-tag">Find Us</div>
+        <h2 class="section-title">Come Say Hello</h2>
+        <p class="section-sub">We'd love to have you — whether you're passing through on the highway or exploring the local community.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" data-reveal>
+          <div class="contact-card highlighted">
+            <div class="contact-card-icon">📍</div>
+            <div>
+              <h4>Find Us Here</h4>
+              <p>Highway 1, Sorrento, BC<br />Between Vancouver &amp; Calgary<br /><small>~halfway on Trans-Canada</small></p>
+              <a href="https://maps.google.com/?q=Sorrento+BC+Highway+1" target="_blank" class="contact-link" id="mapsLink">Open in Google Maps →</a>
+            </div>
+          </div>
+          <div class="contact-card highlighted">
+            <div class="contact-card-icon">🕐</div>
+            <div>
+              <h4>Opening Hours</h4>
+              <p>Open Daily<br />11:00 AM – 10:00 PM<br /><small>Open year-round — including Sep–Mar when nearby restaurants close!</small></p>
+            </div>
+          </div>
+          <div class="contact-card highlighted">
+            <div class="contact-card-icon">📞</div>
+            <div>
+              <h4>Call Us</h4>
+              <p>+1 (250) 675-2332</p>
+              <a href="tel:+12506752332" class="contact-link" id="callLink">Tap to Call →</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map" data-reveal>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d-119.0263!3d50.8702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x537e7cbbb1b66f85%3A0xa0dbe2c8fa3f1fc1!2sSorrento%2C%20BC!5e0!3m2!1sen!2sca!4v1693000000000"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Shoreline Social House location map"
+              id="googleMap">
+            </iframe>
+          </div>
+          <div class="map-highlight">
+            <span>📌</span>
+            <p>On the Trans-Canada Highway — look for us as you drive through Sorrento, BC!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="https://shoreline-social-sorrento.surge.sh/logo-circular.png" alt="Shoreline Social House" class="footer-logo" />
+          <p class="footer-tagline">Good Food. Good People. <em>Good Times.</em></p>
+          <p class="footer-addr">Highway 1, Sorrento, BC · Open Daily 11AM–10PM</p>
+        </div>
+        <div class="footer-links">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h5>Connect With Us</h5>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook" id="footerFacebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram" id="footerInstagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://wa.me/12506752332" target="_blank" class="social-icon" aria-label="WhatsApp" id="footerWhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+          <div class="footer-hours">
+            <strong>Open Daily</strong>
+            <span>11:00 AM – 10:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 Shoreline Social House. All rights reserved. · Sorrento, BC, Canada</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Contact Buttons -->
+  <div class="floating-contact-bar">
+    <a href="tel:+12506752332" class="float-btn float-phone" aria-label="Call Us">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.62 10.79a15.149 15.149 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      <span class="float-tooltip">Call Us</span>
+    </a>
+    <a href="mailto:majesticresorts@outlook.com" class="float-btn float-email" aria-label="Email Us">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+      <span class="float-tooltip">Email Us</span>
+    </a>
+    <a href="https://wa.me/12506752332" target="_blank" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <span class="float-tooltip">Chat with us!</span>
+    </a>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <span class="lightbox-prev" id="lightboxPrev">&#10094;</span>
+    <div class="lightbox-content">
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Zoomed view" />
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+    <span class="lightbox-next" id="lightboxNext">&#10095;</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
