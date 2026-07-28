@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
   galleryItems.forEach((item, index) => {
     const img = item.querySelector('.gallery-img');
     const captionEl = item.querySelector('.gallery-overlay span');
-    const caption = captionEl ? captionEl.textContent : 'Shoreline Social House';
+    const caption = captionEl ? captionEl.textContent : 'Seashore Restaurant';
     
     galleryImagesData.push({
       src: img.getAttribute('src'),
