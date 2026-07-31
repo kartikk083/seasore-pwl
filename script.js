@@ -486,4 +486,306 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+
+  // =====================================================
+  // 6. PAGE LOADER
+  // =====================================================
+  const pageLoader = document.getElementById('pageLoader');
+  if (pageLoader) {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        pageLoader.classList.add('hidden');
+      }, 800);
+    });
+    // Fallback: hide after 3s no matter what
+    setTimeout(() => {
+      pageLoader.classList.add('hidden');
+    }, 3000);
+  }
+
+
+  // =====================================================
+  // 7. SCROLL PROGRESS BAR
+  // =====================================================
+  const scrollProgressBar = document.getElementById('scrollProgress');
+  if (scrollProgressBar) {
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgressBar.style.width = progress + '%';
+    }, { passive: true });
+  }
+
+
+  // =====================================================
+  // 8. CUSTOM CURSOR GLOW (Desktop Only)
+  // =====================================================
+  const cursorGlow = document.getElementById('cursorGlow');
+  const cursorDot = document.getElementById('cursorDot');
+  
+  if (cursorGlow && cursorDot && window.matchMedia('(pointer: fine)').matches && window.innerWidth > 1024) {
+    let mouseX = -100, mouseY = -100;
+    let glowX = -100, glowY = -100;
+    
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      // Dot follows immediately
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+    });
+
+    // Glow follows with smooth physics
+    function animateGlow() {
+      glowX += (mouseX - glowX) * 0.08;
+      glowY += (mouseY - glowY) * 0.08;
+      cursorGlow.style.left = glowX + 'px';
+      cursorGlow.style.top = glowY + 'px';
+      requestAnimationFrame(animateGlow);
+    }
+    animateGlow();
+
+    // Click effect
+    document.addEventListener('mousedown', () => cursorDot.classList.add('clicking'));
+    document.addEventListener('mouseup', () => cursorDot.classList.remove('clicking'));
+    
+    // Scale up on interactive elements
+    const interactiveEls = document.querySelectorAll('a, button, .menu-tab, .gallery-item, .pillar-card-container');
+    interactiveEls.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(3)';
+        cursorDot.style.opacity = '0.4';
+        cursorDot.style.mixBlendMode = 'difference';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorDot.style.opacity = '1';
+        cursorDot.style.mixBlendMode = 'normal';
+      });
+    });
+  } else {
+    // Hide on touch/mobile
+    if (cursorGlow) cursorGlow.style.display = 'none';
+    if (cursorDot) cursorDot.style.display = 'none';
+  }
+
+
+  // =====================================================
+  // 9. PARALLAX DEPTH SCROLLING
+  // =====================================================
+  const heroPoster = document.querySelector('.hero-poster-img');
+  const heroContent = document.querySelector('.hero-content');
+  
+  if (heroPoster && heroContent) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const heroHeight = document.querySelector('.hero').offsetHeight;
+      
+      if (scrollY < heroHeight) {
+        const progress = scrollY / heroHeight;
+        heroPoster.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0) scale(${1 + progress * 0.1})`;
+        heroContent.style.transform = `translate3d(0, ${scrollY * 0.15}px, 0)`;
+        heroContent.style.opacity = 1 - progress * 1.2;
+      }
+    }, { passive: true });
+  }
+
+
+  // =====================================================
+  // 10. ANIMATED COUNTER (Stats Section)
+  // =====================================================
+  const statNums = document.querySelectorAll('.stat-num');
+  let statsAnimated = false;
+
+  function animateCounters() {
+    if (statsAnimated) return;
+    
+    statNums.forEach(stat => {
+      const text = stat.textContent;
+      const match = text.match(/^(\d+)/);
+      if (match) {
+        const target = parseInt(match[1]);
+        const suffix = text.replace(match[1], '');
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 50));
+        const duration = 1500;
+        const stepTime = duration / (target / step);
+        
+        const counter = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(counter);
+          }
+          stat.textContent = current + suffix;
+        }, stepTime);
+
+        statsAnimated = true;
+      }
+    });
+  }
+
+  // Observe stats section
+  const aboutSection = document.getElementById('about');
+  if (aboutSection && window.IntersectionObserver) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    statsObserver.observe(aboutSection);
+  }
+
+
+  // =====================================================
+  // 11. TILT EFFECT ON EXPERIENCE CARDS (Desktop)
+  // =====================================================
+  if (window.innerWidth > 768) {
+    const pillarCards = document.querySelectorAll('.pillar-card-container');
+    
+    pillarCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -8;
+        const rotateY = ((x - centerX) / centerX) * 8;
+        
+        const inner = card.querySelector('.pillar-card');
+        if (inner && !card.matches(':hover')) {
+          // Only apply tilt when not flipped
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        const inner = card.querySelector('.pillar-card');
+        if (inner) {
+          inner.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+      });
+    });
+  }
+
+
+  // =====================================================
+  // 12. MAGNETIC BUTTON HOVER EFFECT
+  // =====================================================
+  if (window.innerWidth > 768) {
+    const magneticBtns = document.querySelectorAll('.btn-gold, .btn-cta-banner');
+    
+    magneticBtns.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+        btn.style.transition = 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+      });
+      
+      btn.addEventListener('mouseenter', () => {
+        btn.style.transition = 'none';
+      });
+    });
+  }
+
+
+  // =====================================================
+  // 13. SMOOTH SECTION ENTRANCE (Stagger Children)
+  // =====================================================
+  if (window.IntersectionObserver) {
+    const staggerSections = document.querySelectorAll('.pillars-grid, .menu-grid, .gallery-mosaic, .contact-grid');
+    
+    staggerSections.forEach(section => {
+      const childObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const children = entry.target.children;
+            Array.from(children).forEach((child, i) => {
+              child.style.opacity = '0';
+              child.style.transform = 'translateY(30px)';
+              child.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+              
+              requestAnimationFrame(() => {
+                child.style.opacity = '1';
+                child.style.transform = 'translateY(0)';
+              });
+            });
+            childObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      
+      childObserver.observe(section);
+    });
+  }
+
+
+  // =====================================================
+  // 14. WAVE DIVIDER PARALLAX SCROLL
+  // =====================================================
+  const waveDividers = document.querySelectorAll('.wave-divider svg');
+  if (waveDividers.length > 0) {
+    window.addEventListener('scroll', () => {
+      waveDividers.forEach(svg => {
+        const rect = svg.parentElement.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+          svg.style.transform = `translateY(${(progress - 0.5) * 12}px)`;
+        }
+      });
+    }, { passive: true });
+  }
+
+
+  // =====================================================
+  // 15. GALLERY IMAGE HOVER KENBURNS EFFECT
+  // =====================================================
+  const galleryImgs = document.querySelectorAll('.gallery-item .gallery-img');
+  galleryImgs.forEach(img => {
+    const directions = [
+      'scale(1.08) translate(-2%, -1%)',
+      'scale(1.08) translate(2%, -1%)',
+      'scale(1.08) translate(-1%, 2%)',
+      'scale(1.08) translate(1%, 1%)'
+    ];
+    const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+    
+    img.parentElement.addEventListener('mouseenter', () => {
+      img.style.transform = randomDirection;
+    });
+    img.parentElement.addEventListener('mouseleave', () => {
+      img.style.transform = 'scale(1)';
+    });
+  });
+
+
+  // =====================================================
+  // 16. TEXT TYPING ANIMATION FOR HERO TAGLINE
+  // =====================================================
+  const heroTagline = document.querySelector('.hero-tagline');
+  if (heroTagline) {
+    heroTagline.style.borderRight = '2px solid var(--gold)';
+    heroTagline.style.animation = 'fadeInUp 0.9s ease 0.3s both';
+    
+    // Blinking cursor that fades away after load
+    setTimeout(() => {
+      heroTagline.style.borderRight = '2px solid transparent';
+      heroTagline.style.transition = 'border-color 1s ease';
+    }, 4000);
+  }
+
 });
+

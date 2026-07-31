@@ -1428,3 +1428,835 @@ ul { list-style: none; }
     inset 0 2px 4px rgba(0, 0, 0, 0.25),
     0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* ============================================================
+   PAGE LOADER
+   ============================================================ */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: radial-gradient(ellipse at center, #3a2519 0%, #1A110D 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.page-loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-inner {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+.loader-ring:nth-child(1) {
+  width: 100%; height: 100%;
+  border-top-color: var(--gold);
+  animation: loaderSpin 1.2s linear infinite;
+}
+.loader-ring:nth-child(2) {
+  width: 78%; height: 78%;
+  border-right-color: var(--gold-light);
+  animation: loaderSpin 1.6s linear infinite reverse;
+}
+.loader-ring:nth-child(3) {
+  width: 56%; height: 56%;
+  border-bottom-color: var(--gold-dark);
+  animation: loaderSpin 2s linear infinite;
+}
+.loader-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: loaderPulse 1.4s ease-in-out infinite;
+}
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
+  background-size: 200% 100%;
+  animation: shimmerBar 2s linear infinite;
+  z-index: 10001;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(212, 180, 131, 0.5), 0 0 20px rgba(212, 180, 131, 0.2);
+}
+@keyframes shimmerBar {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ============================================================
+   CUSTOM CURSOR GLOW (desktop only)
+   ============================================================ */
+.cursor-glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 180, 131, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  will-change: left, top;
+  mix-blend-mode: screen;
+}
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, opacity 0.3s ease;
+  box-shadow: 0 0 12px rgba(212, 180, 131, 0.6);
+  will-change: left, top;
+}
+.cursor-dot.clicking {
+  transform: translate(-50%, -50%) scale(2.5);
+  opacity: 0.4;
+}
+@media (max-width: 1024px) {
+  .cursor-glow, .cursor-dot { display: none !important; }
+}
+@media (pointer: coarse) {
+  .cursor-glow, .cursor-dot { display: none !important; }
+}
+
+/* ============================================================
+   AMBIENT FLOATING ORBS
+   ============================================================ */
+.ambient-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.12;
+  will-change: transform;
+}
+.orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  top: 10%; left: -5%;
+  animation: orbFloat1 20s ease-in-out infinite;
+}
+.orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #8C6B5A 0%, transparent 70%);
+  top: 50%; right: -8%;
+  animation: orbFloat2 25s ease-in-out infinite;
+}
+.orb-3 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, var(--gold-light) 0%, transparent 70%);
+  bottom: 5%; left: 30%;
+  animation: orbFloat3 18s ease-in-out infinite;
+}
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 50px) scale(0.9); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 30px) scale(0.95); }
+  66% { transform: translate(40px, -60px) scale(1.08); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(70px, -30px) scale(1.15); }
+}
+
+/* ============================================================
+   WAVE DIVIDERS
+   ============================================================ */
+.wave-divider {
+  position: relative;
+  z-index: 10;
+  line-height: 0;
+  margin-top: -1px;
+  overflow: hidden;
+}
+.wave-divider svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+.wave-divider--dark { color: var(--brown); }
+.wave-divider--cream { color: var(--cream); }
+.wave-divider--exp { color: var(--cream-dark); }
+.wave-divider--gallery { color: var(--cream-dark); }
+.wave-divider--cta { color: #0d0907; }
+
+@media (max-width: 768px) {
+  .wave-divider svg { height: 35px; }
+}
+
+/* ============================================================
+   ENHANCED REVEAL ANIMATIONS (staggered + multi-direction)
+   ============================================================ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ============================================================
+   ENHANCED HERO EFFECTS
+   ============================================================ */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(212, 180, 131, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(140, 107, 90, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Shimmer title effect */
+@keyframes textShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.hero-title-main {
+  background: linear-gradient(
+    90deg,
+    var(--white) 0%,
+    var(--white) 40%,
+    var(--gold-light) 50%,
+    var(--white) 60%,
+    var(--white) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 5s linear infinite;
+}
+
+/* Hero vignette ring */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(26, 17, 13, 0.5) 100%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   CARD GLASS-TILT ENHANCEMENTS
+   ============================================================ */
+.pillar-card-front::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.pillar-card-container:hover .pillar-card-front::before {
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+}
+
+/* Glow border pulse on stat items */
+.stat-item {
+  transition: transform 0.4s ease;
+}
+.stat-item:hover {
+  transform: scale(1.06);
+}
+.stat-num {
+  transition: text-shadow 0.4s ease, transform 0.4s ease;
+}
+.stat-item:hover .stat-num {
+  text-shadow: 0 0 20px rgba(212, 180, 131, 0.5);
+  transform: scale(1.05);
+}
+
+/* ============================================================
+   MENU ITEM MICRO-ANIMATIONS
+   ============================================================ */
+.menu-item {
+  position: relative;
+  overflow: hidden;
+}
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 180, 131, 0.06), transparent);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.menu-item:hover::before {
+  left: 100%;
+}
+.menu-item-icon {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.menu-item:hover .menu-item-icon {
+  transform: scale(1.3) rotate(-8deg);
+}
+
+/* ============================================================
+   GALLERY ENHANCED HOVER (KEN BURNS + GRADIENT SWEEP)
+   ============================================================ */
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 40%, rgba(26, 17, 13, 0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================
+   TESTIMONIAL CARD GLOW
+   ============================================================ */
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(212, 180, 131, 0.08), transparent 30%);
+  animation: cardGlowRotate 8s linear infinite;
+  pointer-events: none;
+}
+@keyframes cardGlowRotate {
+  to { transform: rotate(360deg); }
+}
+.testimonial-stars .star {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.testimonial-card:hover .star {
+  animation: starPop 0.4s ease forwards;
+}
+.testimonial-card:hover .star:nth-child(1) { animation-delay: 0s; }
+.testimonial-card:hover .star:nth-child(2) { animation-delay: 0.05s; }
+.testimonial-card:hover .star:nth-child(3) { animation-delay: 0.1s; }
+.testimonial-card:hover .star:nth-child(4) { animation-delay: 0.15s; }
+.testimonial-card:hover .star:nth-child(5) { animation-delay: 0.2s; }
+@keyframes starPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4) rotate(15deg); }
+  100% { transform: scale(1.1); }
+}
+
+/* ============================================================
+   CTA BANNER PARALLAX DEPTH
+   ============================================================ */
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at 30% 50%, rgba(212, 180, 131, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+  animation: ctaGlow 6s ease-in-out infinite;
+}
+@keyframes ctaGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ============================================================
+   CONTACT CARD HOVER BORDER GLOW
+   ============================================================ */
+.contact-card.highlighted {
+  position: relative;
+  overflow: hidden;
+}
+.contact-card.highlighted::after {
+  content: '';
+  position: absolute;
+  top: -2px; right: -2px; bottom: -2px; left: -2px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark), var(--gold-light), var(--gold));
+  background-size: 300% 300%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: borderGlow 4s ease infinite;
+  opacity: 0.5;
+}
+@keyframes borderGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ============================================================
+   FOOTER SOCIAL ICONS RIPPLE
+   ============================================================ */
+.social-icon {
+  position: relative;
+  overflow: hidden;
+}
+.social-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 180, 131, 0.3) 0%, transparent 70%);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+  pointer-events: none;
+}
+.social-icon:hover::after {
+  transform: scale(2.5);
+}
+
+/* ============================================================
+   FLOATING CONTACT BUTTONS - PULSE RING
+   ============================================================ */
+.float-whatsapp::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 12px;
+  border: 2px solid #00e676;
+  animation: floatPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes floatPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0; }
+}
+
+/* ============================================================
+   ANNOUNCEMENT BAR GLOW
+   ============================================================ */
+.announcement-bar {
+  position: relative;
+  overflow: hidden;
+}
+.announcement-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 40%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: announcementSweep 6s linear infinite;
+  pointer-events: none;
+}
+@keyframes announcementSweep {
+  0% { left: -40%; }
+  100% { left: 140%; }
+}
+
+/* ============================================================
+   SECTION DECORATIVE CORNER ACCENTS
+   ============================================================ */
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 40px; left: 40px;
+  width: 80px; height: 80px;
+  border-top: 2px solid rgba(212, 180, 131, 0.15);
+  border-left: 2px solid rgba(212, 180, 131, 0.15);
+  pointer-events: none;
+}
+.about-section::after {
+  content: '';
+  position: absolute;
+  bottom: 40px; right: 40px;
+  width: 80px; height: 80px;
+  border-bottom: 2px solid rgba(212, 180, 131, 0.15);
+  border-right: 2px solid rgba(212, 180, 131, 0.15);
+  pointer-events: none;
+}
+.about-section {
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .about-section::before,
+  .about-section::after {
+    width: 40px; height: 40px;
+    top: 20px; left: 20px;
+  }
+  .about-section::after {
+    bottom: 20px; right: 20px;
+    top: auto; left: auto;
+  }
+}
+
+/* ============================================================
+   SMOOTH PAGE TRANSITIONS
+   ============================================================ */
+body {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+body.loading {
+  opacity: 0;
+}
+
+/* ============================================================
+   WATERMARK / GHOST TEXT BEHIND SECTIONS
+   ============================================================ */
+.watermark-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(5rem, 18vw, 14rem);
+  font-weight: 700;
+  color: rgba(212, 180, 131, 0.04);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+/* ============================================================
+   GOLD DIVIDER ORNAMENT
+   ============================================================ */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.gold-divider span {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ============================================================
+   HERO REDESIGN — Phone, Seal, Leaf
+   ============================================================ */
+.hero-or {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+}
+.hero-phone {
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  transition: color var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+.hero-phone:hover {
+  color: var(--white);
+}
+
+/* Rotating Seal Badge */
+.hero-seal {
+  position: absolute;
+  bottom: 100px;
+  right: 60px;
+  z-index: 2;
+  animation: sealRotate 20s linear infinite;
+}
+.seal-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  fill: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+@keyframes sealRotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Decorative Gold Leaf */
+.hero-leaf {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  opacity: 0.6;
+  animation: leafFloat 6s ease-in-out infinite;
+}
+@keyframes leafFloat {
+  0%, 100% { transform: translateY(-50%) rotate(0deg); }
+  50% { transform: translateY(-53%) rotate(3deg); }
+}
+
+@media (max-width: 1024px) {
+  .hero-seal { right: 20px; bottom: 80px; }
+  .hero-seal svg { width: 100px; height: 100px; }
+  .hero-leaf { display: none; }
+}
+@media (max-width: 768px) {
+  .hero-seal { display: none; }
+}
+
+/* ============================================================
+   EDITORIAL ABOUT SECTION
+   ============================================================ */
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+.about-editorial {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.btn-outline-editorial {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: transparent;
+  border-radius: 0;
+  transition: var(--transition);
+  margin-top: 28px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-outline-editorial:hover {
+  background: var(--gold);
+  color: var(--cream);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(212, 180, 131, 0.25);
+}
+
+/* Full-Width Food Image in About */
+.about-food-image {
+  max-width: 700px;
+  margin: 60px auto 50px;
+  position: relative;
+  z-index: 1;
+}
+.about-food-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.6s ease;
+}
+.about-food-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Stats Editorial */
+.about-stats-editorial {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 10px;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(74, 50, 40, 0.5) 0%, rgba(26, 17, 13, 0.8) 100%);
+  border: 1px solid rgba(212, 180, 131, 0.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .about-food-image img { height: 280px; }
+  .about-stats-editorial {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   CHEF'S WORDS SECTION
+   ============================================================ */
+.chef-section {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+.chef-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+.chef-image-left,
+.chef-image-right {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.chef-image-left img,
+.chef-image-right img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: brightness(0.85);
+}
+.chef-image-left:hover img,
+.chef-image-right:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* Subtle border accent on images */
+.chef-image-left::after,
+.chef-image-right::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(212, 180, 131, 0.15);
+  border-radius: 2px;
+  pointer-events: none;
+  transition: border-color 0.4s ease;
+}
+.chef-image-left:hover::after,
+.chef-image-right:hover::after {
+  border-color: rgba(212, 180, 131, 0.35);
+}
+
+.chef-content {
+  text-align: center;
+  padding: 20px 10px;
+  position: relative;
+  z-index: 1;
+}
+.chef-title {
+  font-size: clamp(2rem, 4vw, 3.5rem) !important;
+}
+.chef-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  line-height: 1.7;
+  margin: 24px 0;
+  padding: 0 10px;
+}
+.chef-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+.chef-signature {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212, 180, 131, 0.2);
+  display: inline-block;
+}
+.signature-text {
+  display: block;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.signature-role {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .chef-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .chef-image-left,
+  .chef-image-right {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .chef-image-left img,
+  .chef-image-right img {
+    height: 320px;
+  }
+  .chef-image-right {
+    order: 3;
+  }
+}
+@media (max-width: 768px) {
+  .chef-image-left img,
+  .chef-image-right img {
+    height: 250px;
+  }
+}
+
+/* ============================================================
+   SECTION OVERFLOW FIX FOR WATERMARKS
+   ============================================================ */
+.about-section,
+.experience-section,
+.menu-section,
+.chef-section {
+  position: relative;
+  overflow: hidden;
+}
+
