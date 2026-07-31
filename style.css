@@ -2087,31 +2087,12 @@ body.loading {
   box-shadow: 0 6px 24px rgba(212, 180, 131, 0.25);
 }
 
-/* Full-Width Food Image in About */
-.about-food-image {
-  max-width: 700px;
-  margin: 60px auto 50px;
-  position: relative;
-  z-index: 1;
-}
-.about-food-image img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 4px;
-  box-shadow: var(--shadow-lg);
-  transition: transform 0.6s ease;
-}
-.about-food-image:hover img {
-  transform: scale(1.02);
-}
-
 /* Stats Editorial */
 .about-stats-editorial {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 10px;
+  margin-top: 40px;
   padding: 32px;
   background: linear-gradient(135deg, rgba(74, 50, 40, 0.5) 0%, rgba(26, 17, 13, 0.8) 100%);
   border: 1px solid rgba(212, 180, 131, 0.12);
@@ -2122,7 +2103,6 @@ body.loading {
 }
 
 @media (max-width: 768px) {
-  .about-food-image img { height: 280px; }
   .about-stats-editorial {
     flex-direction: column;
     gap: 16px;
@@ -2137,50 +2117,10 @@ body.loading {
   position: relative;
   overflow: hidden;
 }
-.chef-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr;
-  gap: 36px;
-  align-items: center;
-}
-.chef-image-left,
-.chef-image-right {
-  position: relative;
-  overflow: hidden;
-  border-radius: 4px;
-}
-.chef-image-left img,
-.chef-image-right img {
-  width: 100%;
-  height: 450px;
-  object-fit: cover;
-  transition: transform 0.6s ease, filter 0.6s ease;
-  filter: brightness(0.85);
-}
-.chef-image-left:hover img,
-.chef-image-right:hover img {
-  transform: scale(1.05);
-  filter: brightness(1);
-}
-
-/* Subtle border accent on images */
-.chef-image-left::after,
-.chef-image-right::after {
-  content: '';
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(212, 180, 131, 0.15);
-  border-radius: 2px;
-  pointer-events: none;
-  transition: border-color 0.4s ease;
-}
-.chef-image-left:hover::after,
-.chef-image-right:hover::after {
-  border-color: rgba(212, 180, 131, 0.35);
-}
-
-.chef-content {
+.chef-content-centered {
   text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
   padding: 20px 10px;
   position: relative;
   z-index: 1;
