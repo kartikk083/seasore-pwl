@@ -44,12 +44,13 @@
   <div id="cursorGlow" class="cursor-glow"></div>
   <div id="cursorDot" class="cursor-dot"></div>
 
-  <!-- ===== AMBIENT BACKGROUND ORBS ===== -->
+  <!-- ===== AMBIENT BACKGROUND ORBS & OCEAN BUBBLES ===== -->
   <div class="ambient-orbs" aria-hidden="true">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
   </div>
+  <div id="oceanBubbles" class="ocean-bubbles-container" aria-hidden="true"></div>
 
   <!-- ===== NAVIGATION ===== -->
   <nav id="navbar" class="navbar">
@@ -66,6 +67,12 @@
         <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+      <button id="audioToggle" class="audio-toggle-btn" aria-label="Toggle Ocean Ambient Sound" title="Toggle Coastal Shoreline Sound">
+        <div class="eq-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span class="audio-label">Ocean Sound</span>
+      </button>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -79,8 +86,12 @@
     <img src="https://shoreline-social-sorrento.surge.sh/hero-bg.png" alt="Seashore Restaurant" class="hero-poster-img" />
     <div class="hero-content">
       <div class="hero-badge">Est. 2023 · Sorrento, BC</div>
+      <div class="sorrento-status-badge" id="sorrentoStatusBadge">
+        <span class="status-pulse"></span>
+        <span id="sorrentoStatusText">Sorrento, BC · Live</span>
+      </div>
       <h1 class="hero-title">
-        <span class="hero-title-main">Seashore</span>
+        <span class="hero-title-main gold-shimmer-text">Seashore</span>
         <span class="hero-title-sub">Restaurant</span>
       </h1>
       <p class="hero-tagline">Good Food. Good People. <em>Good Times.</em></p>
@@ -310,6 +321,15 @@
         <div class="section-tag">Our Menu</div>
         <h2 class="section-title">Crafted with Passion,<br />Served with Pride</h2>
         <p class="section-sub">Multi-cuisine offerings inspired by Chef Ravi's 20+ years of global culinary expertise.</p>
+      </div>
+
+      <!-- Real-time Menu Search -->
+      <div class="menu-search-container" data-reveal>
+        <div class="menu-search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="menuSearchInput" placeholder="Search dishes or ingredients (e.g., Calamari, Steak, Gluten Free...)" aria-label="Search Menu Dishes" />
+          <button id="menuSearchClear" class="search-clear-btn" aria-label="Clear Search" style="display: none;">&times;</button>
+        </div>
       </div>
       
       <div class="menu-tabs" data-reveal>
@@ -610,6 +630,96 @@
       <div id="lightboxCaption" class="lightbox-caption"></div>
     </div>
     <span class="lightbox-next" id="lightboxNext">&#10095;</span>
+  </div>
+
+  <!-- Floating Reserve Button -->
+  <button id="floatingReserveBtn" class="floating-reserve-btn" aria-label="Reserve a Table">
+    <span class="btn-sparkle">✨</span>
+    <span class="btn-text">Reserve a Table</span>
+  </button>
+
+  <!-- Reservation Quick Modal -->
+  <div id="reservationModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card glass-modal">
+      <button class="modal-close" id="closeReserveModal" aria-label="Close Reservation Modal">&times;</button>
+      <div class="modal-header">
+        <span class="modal-tag">Fine Dining Sorrento</span>
+        <h2>Reserve Your Table</h2>
+        <p>Join us at Seashore Restaurant for an unforgettable coastal meal.</p>
+      </div>
+      <form id="reservationForm" class="reservation-form">
+        <div class="form-group">
+          <label for="resName">Full Name</label>
+          <input type="text" id="resName" required placeholder="Your Name" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="resGuests">Guests</label>
+            <select id="resGuests" required>
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5 Guests</option>
+              <option value="6+">6+ Guests (Party)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="resDate">Date</label>
+            <input type="date" id="resDate" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="resTime">Preferred Time</label>
+            <select id="resTime" required>
+              <option value="12:00 PM">12:00 PM (Lunch)</option>
+              <option value="1:30 PM">1:30 PM</option>
+              <option value="5:00 PM">5:00 PM (Early Dinner)</option>
+              <option value="6:30 PM" selected>6:30 PM</option>
+              <option value="8:00 PM">8:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="resPhone">Phone Number</label>
+            <input type="tel" id="resPhone" required placeholder="+1 (250) 675-2332" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="resNotes">Special Requests / Seating Preference</label>
+          <input type="text" id="resNotes" placeholder="e.g. Patio view, Birthday celebration..." />
+        </div>
+        <button type="submit" class="btn btn-gold btn-full">Confirm Reservation Request ✨</button>
+      </form>
+      <div id="reservationSuccess" class="reservation-success" style="display:none;">
+        <span class="success-icon">🎉</span>
+        <h3>Table Reservation Requested!</h3>
+        <p>Thank you <strong id="confName">Guest</strong>. We have received your request for <strong id="confDetails">2 guests</strong> on <strong id="confDate">Today</strong>.</p>
+        <p class="small-text">Our team will confirm your table shortly via call or SMS. See you soon at Sorrento!</p>
+        <button class="btn btn-outline-dark" id="closeSuccessBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dish Spotlight Modal -->
+  <div id="dishModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card dish-modal-card glass-modal">
+      <button class="modal-close" id="closeDishModal" aria-label="Close Dish Modal">&times;</button>
+      <div class="dish-modal-content">
+        <div class="dish-modal-icon" id="dishModalIcon">🥗</div>
+        <div class="dish-modal-badge" id="dishModalCategory">Starters</div>
+        <h2 id="dishModalTitle">Crispy Calamari</h2>
+        <p id="dishModalDesc" class="dish-modal-desc">Hand breaded, lightly dusted and fried squid served with red onions, tartar sauce and a lemon wedge.</p>
+        <div class="dish-modal-pairing">
+          <span>🍷 Chef's Recommended Pairing:</span>
+          <span id="dishModalPairing">Chilled Okanagan Valley Sauvignon Blanc</span>
+        </div>
+        <div class="dish-modal-actions">
+          <a href="tel:+12506752332" class="btn btn-gold">Call to Order</a>
+          <button class="btn btn-outline-dark" id="dishReserveBtn">Reserve Table</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

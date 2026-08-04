@@ -97,39 +97,53 @@ const tabButtons = document.querySelectorAll('.menu-tab');
 const menuGrid = document.getElementById('menuGrid');
 const kidsBanner = document.getElementById('kidsMenuBanner');
 
+let currentCategory = 'Starters';
+
+const pairingsMap = {
+  Starters: 'Chilled Okanagan Valley Sauvignon Blanc',
+  Mains: 'B.C. Craft Amber Ale or Pinot Noir',
+  Handhelds: 'Local Craft IPA or Iced Tea',
+  Salads: 'Crisp Pinot Gris or Lemon Sparkling Water',
+  Soups: 'Warm Garlic Naan & Chardonnay',
+  'Steak & Lamb': 'Full-bodied Okanagan Cabernet Sauvignon',
+  Desserts: 'Espresso or Sticky Port Wine',
+  Kids: 'Fresh Berry Smoothie or Apple Juice'
+};
+
+function createMenuItemElement(item, category) {
+  const itemEl = document.createElement('div');
+  itemEl.className = 'menu-item';
+  itemEl.innerHTML = `
+    <span class="menu-item-icon">${item.icon}</span>
+    <div class="menu-item-info">
+      <h4>${item.name}</h4>
+      <p>${item.desc}</p>
+      <span class="menu-item-badge">✨ Tap to preview &amp; pair</span>
+    </div>
+  `;
+  itemEl.addEventListener('click', () => openDishModal(item, category));
+  return itemEl;
+}
+
 function renderMenu(category) {
-  // Add fade-out class to start transition
+  currentCategory = category;
   menuGrid.classList.add('fade-out');
   
   setTimeout(() => {
-    // Clear grid
     menuGrid.innerHTML = '';
-    
-    // Get items for category
     const items = menuData[category] || [];
     
-    // Create and append items
     items.forEach(item => {
-      const itemEl = document.createElement('div');
-      itemEl.className = 'menu-item';
-      itemEl.innerHTML = `
-        <span class="menu-item-icon">${item.icon}</span>
-        <div class="menu-item-info">
-          <h4>${item.name}</h4>
-          <p>${item.desc}</p>
-        </div>
-      `;
+      const itemEl = createMenuItemElement(item, category);
       menuGrid.appendChild(itemEl);
     });
 
-    // Toggle Kids Banner
     if (category === 'Kids') {
       kidsBanner.style.display = 'flex';
     } else {
       kidsBanner.style.display = 'none';
     }
     
-    // Remove fade-out to trigger fade-in transition
     menuGrid.classList.remove('fade-out');
   }, 300);
 }
@@ -137,16 +151,16 @@ function renderMenu(category) {
 // Attach click listeners to tabs
 tabButtons.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Remove active class from all
     tabButtons.forEach(b => b.classList.remove('active'));
-    
-    // Add to clicked
     btn.classList.add('active');
-    
-    // Get target category ID
     const category = btn.getAttribute('data-tab');
     
-    // Render menu
+    // Clear search input if present
+    const searchInput = document.getElementById('menuSearchInput');
+    const searchClear = document.getElementById('menuSearchClear');
+    if (searchInput) searchInput.value = '';
+    if (searchClear) searchClear.style.display = 'none';
+
     renderMenu(category);
   });
 });
@@ -233,11 +247,70 @@ document.addEventListener('DOMContentLoaded', () => {
       particles.push(p);
     }
 
+    // Ocean Wave Undulation & Caustic Sunbeams
+    let waveStep = 0;
+    function drawSunbeams() {
+      const w = canvas.width;
+      const h = canvas.height;
+      const rayCount = 4;
+      for (let i = 0; i < rayCount; i++) {
+        const offset = (waveStep * 0.4 + i * 1.5) % (Math.PI * 2);
+        const rayX = (w / (rayCount + 1)) * (i + 1) + Math.sin(offset) * 35;
+        const opacity = (Math.sin(offset) * 0.5 + 0.5) * 0.035;
+        
+        ctx.beginPath();
+        ctx.moveTo(rayX, 0);
+        ctx.lineTo(rayX - 50, h);
+        ctx.lineTo(rayX + 110, h);
+        ctx.closePath();
+        
+        const grad = ctx.createLinearGradient(rayX, 0, rayX, h);
+        grad.addColorStop(0, `rgba(248, 244, 238, ${opacity * 1.5})`);
+        grad.addColorStop(0.5, `rgba(212, 180, 131, ${opacity})`);
+        grad.addColorStop(1, 'transparent');
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+    }
+
+    function drawOceanWaves() {
+      waveStep += 0.012;
+      const h = canvas.height;
+      const w = canvas.width;
+      
+      // Wave 1 - Deep Gold Glow
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for (let x = 0; x <= w; x += 15) {
+        const y = Math.sin(x * 0.005 + waveStep) * 18 + Math.cos(x * 0.01 + waveStep * 0.8) * 10 + (h - 45);
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(w, h);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(212, 180, 131, 0.04)';
+      ctx.fill();
+
+      // Wave 2 - Soft Azure Accent Line
+      ctx.beginPath();
+      ctx.moveTo(0, h);
+      for (let x = 0; x <= w; x += 12) {
+        const y = Math.sin(x * 0.008 - waveStep * 1.2) * 14 + Math.sin(x * 0.004 + waveStep) * 8 + (h - 25);
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(w, h);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(140, 190, 214, 0.03)';
+      ctx.fill();
+    }
+
     // Animation Loop
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.shadowBlur = 0; // reset shadow for optimization
       
+      drawSunbeams();
+      drawOceanWaves();
+
       particles.forEach(p => {
         p.update();
         p.draw();
@@ -787,5 +860,370 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 4000);
   }
 
+
+  // =====================================================
+  // 17. WEB AUDIO SHORELINE SYNTHESIZER
+  // =====================================================
+  const audioToggle = document.getElementById('audioToggle');
+  let audioCtx = null;
+  let noiseNode = null;
+  let filterNode = null;
+  let lfoNode = null;
+  let gainNode = null;
+  let isPlayingAudio = false;
+
+  function initShoreAudio() {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    
+    const bufferSize = audioCtx.sampleRate * 3;
+    const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    let lastOut = 0.0;
+    for (let i = 0; i < bufferSize; i++) {
+      const white = Math.random() * 2 - 1;
+      data[i] = (lastOut + (0.02 * white)) / 1.02;
+      lastOut = data[i];
+      data[i] *= 3.5;
+    }
+
+    noiseNode = audioCtx.createBufferSource();
+    noiseNode.buffer = buffer;
+    noiseNode.loop = true;
+
+    filterNode = audioCtx.createBiquadFilter();
+    filterNode.type = 'lowpass';
+    filterNode.frequency.value = 350;
+
+    lfoNode = audioCtx.createOscillator();
+    lfoNode.frequency.value = 0.18; // ~5.5s wave cycle
+    
+    const lfoGain = audioCtx.createGain();
+    lfoGain.gain.value = 300;
+
+    lfoNode.connect(lfoGain);
+    lfoGain.connect(filterNode.frequency);
+
+    gainNode = audioCtx.createGain();
+    gainNode.gain.value = 0;
+
+    noiseNode.connect(filterNode);
+    filterNode.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    noiseNode.start();
+    lfoNode.start();
+  }
+
+  if (audioToggle) {
+    audioToggle.addEventListener('click', () => {
+      if (!audioCtx) {
+        initShoreAudio();
+      }
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      if (!isPlayingAudio) {
+        gainNode.gain.setTargetAtTime(0.18, audioCtx.currentTime, 0.8);
+        audioToggle.classList.add('playing');
+        isPlayingAudio = true;
+      } else {
+        gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.5);
+        audioToggle.classList.remove('playing');
+        isPlayingAudio = false;
+      }
+    });
+  }
+
+
+  // =====================================================
+  // 18. LIVE SORRENTO BC STATUS & CLOCK
+  // =====================================================
+  const statusText = document.getElementById('sorrentoStatusText');
+  const statusBadge = document.getElementById('sorrentoStatusBadge');
+
+  function updateSorrentoStatus() {
+    if (!statusText) return;
+    try {
+      const now = new Date();
+      const options = { timeZone: 'America/Vancouver', hour: 'numeric', minute: '2-digit', hour12: true };
+      const timeStr = new Intl.DateTimeFormat('en-US', options).format(now);
+      
+      const hourOptions = { timeZone: 'America/Vancouver', hour: 'numeric', hour12: false };
+      const currentHour = parseInt(new Intl.DateTimeFormat('en-US', hourOptions).format(now));
+
+      const isOpen = currentHour >= 11 && currentHour < 22; // Open 11 AM to 10 PM
+      if (isOpen) {
+        statusText.innerHTML = `Sorrento, BC: ${timeStr} · <strong>Open Now</strong> (Until 10 PM)`;
+        if (statusBadge) statusBadge.classList.remove('closed');
+      } else {
+        statusText.innerHTML = `Sorrento, BC: ${timeStr} · <strong>Closed</strong> (Opens 11 AM)`;
+        if (statusBadge) statusBadge.classList.add('closed');
+      }
+    } catch (e) {
+      if (statusText) statusText.textContent = "Sorrento, BC · Open Today 11 AM – 10 PM";
+    }
+  }
+  updateSorrentoStatus();
+  setInterval(updateSorrentoStatus, 30000);
+
+
+  // =====================================================
+  // 19. MENU SEARCH & DISH SPOTLIGHT MODAL
+  // =====================================================
+  const searchInput = document.getElementById('menuSearchInput');
+  const searchClear = document.getElementById('menuSearchClear');
+  const dishModal = document.getElementById('dishModal');
+  const closeDishModal = document.getElementById('closeDishModal');
+  const dishReserveBtn = document.getElementById('dishReserveBtn');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim().toLowerCase();
+      if (query.length > 0) {
+        if (searchClear) searchClear.style.display = 'block';
+        renderFilteredMenu(query);
+      } else {
+        if (searchClear) searchClear.style.display = 'none';
+        renderMenu(currentCategory);
+      }
+    });
+  }
+
+  if (searchClear) {
+    searchClear.addEventListener('click', () => {
+      searchInput.value = '';
+      searchClear.style.display = 'none';
+      renderMenu(currentCategory);
+    });
+  }
+
+  function renderFilteredMenu(query) {
+    menuGrid.classList.add('fade-out');
+    setTimeout(() => {
+      menuGrid.innerHTML = '';
+      let matches = [];
+
+      Object.keys(menuData).forEach(cat => {
+        menuData[cat].forEach(item => {
+          if (item.name.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query) || cat.toLowerCase().includes(query)) {
+            matches.push({ ...item, category: cat });
+          }
+        });
+      });
+
+      if (matches.length === 0) {
+        menuGrid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: var(--text-muted);">No dishes matching "<strong>${query}</strong>". Try searching for Calamari, Steak, Chicken, or Salad!</div>`;
+      } else {
+        matches.forEach(item => {
+          const itemEl = createMenuItemElement(item, item.category);
+          menuGrid.appendChild(itemEl);
+        });
+      }
+      menuGrid.classList.remove('fade-out');
+    }, 200);
+  }
+
+  function openDishModal(item, category) {
+    if (!dishModal) return;
+    document.getElementById('dishModalIcon').textContent = item.icon;
+    document.getElementById('dishModalCategory').textContent = category || 'Chef Special';
+    document.getElementById('dishModalTitle').textContent = item.name;
+    document.getElementById('dishModalDesc').textContent = item.desc;
+    document.getElementById('dishModalPairing').textContent = pairingsMap[category] || 'Okanagan Valley Wine Selection';
+
+    dishModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  if (closeDishModal) {
+    closeDishModal.addEventListener('click', () => {
+      dishModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+
+  if (dishModal) {
+    dishModal.addEventListener('click', (e) => {
+      if (e.target === dishModal) {
+        dishModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+
+  // =====================================================
+  // 20. QUICK TABLE RESERVATION MODAL WORKFLOW
+  // =====================================================
+  const floatingReserveBtn = document.getElementById('floatingReserveBtn');
+  const reservationModal = document.getElementById('reservationModal');
+  const closeReserveModal = document.getElementById('closeReserveModal');
+  const reservationForm = document.getElementById('reservationForm');
+  const reservationSuccess = document.getElementById('reservationSuccess');
+  const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+
+  function openReservationModal() {
+    if (!reservationModal) return;
+    if (dishModal) dishModal.classList.remove('active');
+    
+    const dateInput = document.getElementById('resDate');
+    if (dateInput && !dateInput.value) {
+      dateInput.value = new Date().toISOString().split('T')[0];
+    }
+    
+    reservationModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeReservationModal() {
+    if (!reservationModal) return;
+    reservationModal.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      if (reservationForm) reservationForm.style.display = 'block';
+      if (reservationSuccess) reservationSuccess.style.display = 'none';
+    }, 400);
+  }
+
+  if (floatingReserveBtn) floatingReserveBtn.addEventListener('click', openReservationModal);
+  if (dishReserveBtn) dishReserveBtn.addEventListener('click', openReservationModal);
+  if (closeReserveModal) closeReserveModal.addEventListener('click', closeReservationModal);
+
+  if (reservationModal) {
+    reservationModal.addEventListener('click', (e) => {
+      if (e.target === reservationModal) closeReservationModal();
+    });
+  }
+
+  if (reservationForm) {
+    reservationForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('resName').value || 'Guest';
+      const guests = document.getElementById('resGuests').value || '2';
+      const date = document.getElementById('resDate').value || 'Today';
+      const time = document.getElementById('resTime').value || '6:30 PM';
+
+      document.getElementById('confName').textContent = name;
+      document.getElementById('confDetails').textContent = `${guests} guest(s) at ${time}`;
+      document.getElementById('confDate').textContent = date;
+
+      reservationForm.style.display = 'none';
+      reservationSuccess.style.display = 'block';
+    });
+  }
+
+  if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeReservationModal);
+
+
+  // =====================================================
+  // 21. SPOTLIGHT LIGHTING REFLECTIONS (MOUSEMOVE TRACKING)
+  // =====================================================
+  document.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.menu-item, .pillar-card-container, .gallery-item');
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+
+  // =====================================================
+  // 22. ADVANCED INTERACTIVE 3D PERSPECTIVE CARD TILT ENGINE
+  // =====================================================
+  if (window.matchMedia('(pointer: fine)').matches && window.innerWidth > 768) {
+    const tiltElements = document.querySelectorAll('.pillar-card-container, .menu-item, .gallery-item, .stat-item, .chef-content-centered, .about-editorial');
+
+    tiltElements.forEach(el => {
+      if (!el.querySelector('.tilt-glow-layer')) {
+        const glow = document.createElement('div');
+        glow.className = 'tilt-glow-layer';
+        el.appendChild(glow);
+      }
+
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.015, 1.015, 1.015)`;
+        el.style.setProperty('--tilt-x', `${x}px`);
+        el.style.setProperty('--tilt-y', `${y}px`);
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        el.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+      });
+
+      el.addEventListener('mouseenter', () => {
+        el.style.transition = 'none';
+      });
+    });
+  }
+
+
+  // =====================================================
+  // 23. WATER DROP CLICK RIPPLE EFFECT
+  // =====================================================
+  document.addEventListener('click', (e) => {
+    const ripple = document.createElement('div');
+    ripple.className = 'click-ripple';
+    ripple.style.left = `${e.clientX}px`;
+    ripple.style.top = `${e.clientY}px`;
+    document.body.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 700);
+  });
+
+
+  // =====================================================
+  // 24. AMBIENT UNDERWATER OCEAN BUBBLES
+  // =====================================================
+  const bubbleContainer = document.getElementById('oceanBubbles');
+  if (bubbleContainer) {
+    const bubbleCount = 14;
+    for (let i = 0; i < bubbleCount; i++) {
+      const bubble = document.createElement('div');
+      bubble.className = 'ocean-bubble';
+      const size = Math.random() * 12 + 6; // 6px - 18px
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}%`;
+      bubble.style.bottom = `-${size + 20}px`;
+      
+      const duration = Math.random() * 12 + 10; // 10s - 22s float
+      const delay = Math.random() * 10;
+      const xSway = Math.random() * 40 - 20;
+
+      bubble.animate([
+        { transform: `translate3d(0, 0, 0)`, opacity: 0 },
+        { opacity: 0.55, offset: 0.15 },
+        { opacity: 0.45, offset: 0.8 },
+        { transform: `translate3d(${xSway}px, -${window.innerHeight + 100}px, 0)`, opacity: 0 }
+      ], {
+        duration: duration * 1000,
+        delay: delay * 1000,
+        iterations: Infinity,
+        easing: 'cubic-bezier(0.4, 0, 0.6, 1)'
+      });
+
+      bubbleContainer.appendChild(bubble);
+    }
+  }
+
 });
+
+
 
