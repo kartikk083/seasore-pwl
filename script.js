@@ -230,10 +230,17 @@ document.addEventListener('DOMContentLoaded', () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        // Soft gold ember color matched to the new gold accent (#D4B483 -> rgb(212, 180, 131))
-        ctx.fillStyle = `rgba(212, 180, 131, ${this.alpha})`;
-        ctx.shadowBlur = this.size * 2;
-        ctx.shadowColor = 'rgba(212, 180, 131, 0.6)';
+        // Radiant golden amber & soft coastal azure particle mix
+        const isGold = Math.sin(this.x) > -0.2;
+        if (isGold) {
+          ctx.fillStyle = `rgba(255, 215, 130, ${this.alpha * 1.2})`;
+          ctx.shadowBlur = this.size * 3;
+          ctx.shadowColor = 'rgba(255, 180, 50, 0.8)';
+        } else {
+          ctx.fillStyle = `rgba(120, 200, 245, ${this.alpha * 0.9})`;
+          ctx.shadowBlur = this.size * 3;
+          ctx.shadowColor = 'rgba(80, 180, 230, 0.7)';
+        }
         ctx.fill();
       }
     }
@@ -252,21 +259,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawSunbeams() {
       const w = canvas.width;
       const h = canvas.height;
-      const rayCount = 4;
+      const rayCount = 5;
       for (let i = 0; i < rayCount; i++) {
         const offset = (waveStep * 0.4 + i * 1.5) % (Math.PI * 2);
-        const rayX = (w / (rayCount + 1)) * (i + 1) + Math.sin(offset) * 35;
-        const opacity = (Math.sin(offset) * 0.5 + 0.5) * 0.035;
+        const rayX = (w / (rayCount + 1)) * (i + 1) + Math.sin(offset) * 45;
+        const opacity = (Math.sin(offset) * 0.5 + 0.5) * 0.05;
         
         ctx.beginPath();
         ctx.moveTo(rayX, 0);
-        ctx.lineTo(rayX - 50, h);
-        ctx.lineTo(rayX + 110, h);
+        ctx.lineTo(rayX - 70, h);
+        ctx.lineTo(rayX + 130, h);
         ctx.closePath();
         
         const grad = ctx.createLinearGradient(rayX, 0, rayX, h);
-        grad.addColorStop(0, `rgba(248, 244, 238, ${opacity * 1.5})`);
-        grad.addColorStop(0.5, `rgba(212, 180, 131, ${opacity})`);
+        grad.addColorStop(0, `rgba(255, 235, 180, ${opacity * 2})`);
+        grad.addColorStop(0.5, `rgba(240, 180, 90, ${opacity * 1.2})`);
         grad.addColorStop(1, 'transparent');
         ctx.fillStyle = grad;
         ctx.fill();
@@ -278,28 +285,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const h = canvas.height;
       const w = canvas.width;
       
-      // Wave 1 - Deep Gold Glow
+      // Wave 1 - Deep Sunset Gold Glow
       ctx.beginPath();
       ctx.moveTo(0, h);
       for (let x = 0; x <= w; x += 15) {
-        const y = Math.sin(x * 0.005 + waveStep) * 18 + Math.cos(x * 0.01 + waveStep * 0.8) * 10 + (h - 45);
+        const y = Math.sin(x * 0.005 + waveStep) * 22 + Math.cos(x * 0.01 + waveStep * 0.8) * 12 + (h - 55);
         ctx.lineTo(x, y);
       }
       ctx.lineTo(w, h);
       ctx.closePath();
-      ctx.fillStyle = 'rgba(212, 180, 131, 0.04)';
+      ctx.fillStyle = 'rgba(255, 190, 80, 0.07)';
       ctx.fill();
 
-      // Wave 2 - Soft Azure Accent Line
+      // Wave 2 - Soft Azure & Cyan Coastal Crest
       ctx.beginPath();
       ctx.moveTo(0, h);
       for (let x = 0; x <= w; x += 12) {
-        const y = Math.sin(x * 0.008 - waveStep * 1.2) * 14 + Math.sin(x * 0.004 + waveStep) * 8 + (h - 25);
+        const y = Math.sin(x * 0.008 - waveStep * 1.2) * 16 + Math.sin(x * 0.004 + waveStep) * 10 + (h - 30);
         ctx.lineTo(x, y);
       }
       ctx.lineTo(w, h);
       ctx.closePath();
-      ctx.fillStyle = 'rgba(140, 190, 214, 0.03)';
+      ctx.fillStyle = 'rgba(70, 180, 230, 0.06)';
       ctx.fill();
     }
 
