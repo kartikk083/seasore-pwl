@@ -4,29 +4,29 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  --gold: #D4B483;
-  --gold-light: #F5E3C5;
-  --gold-dark: #C69F68;
-  --brown: #F8F4EE;
-  --brown-mid: #D4B483;
-  --brown-light: #1A2B3C;
-  --cream: #0B1622;
-  --cream-dark: #0F1E2E;
-  --dark: #070E17;
-  --text-main: #F8F4EE;
-  --text-muted: #CBD5E1;
-  --white: #F8F4EE;
-  --cta: #D4B483;
-  --cta-light: #E2C8A4;
-  --cta-dark: #BCA073;
-  --shadow: 0 10px 40px rgba(4, 10, 18, 0.55);
-  --shadow-lg: 0 24px 70px rgba(4, 10, 18, 0.75);
+  --gold: #FFC107;
+  --gold-light: #FFE082;
+  --gold-dark: #FF9800;
+  --brown: #FFF8E7;
+  --brown-mid: #FFC107;
+  --brown-light: #3D2B0F;
+  --cream: #1A1205;
+  --cream-dark: #120C03;
+  --dark: #0A0702;
+  --text-main: #FFF8E7;
+  --text-muted: #EAD5AB;
+  --white: #FFFFFF;
+  --cta: #FFB300;
+  --cta-light: #FFCA28;
+  --cta-dark: #FF8F00;
+  --shadow: 0 10px 40px rgba(255, 179, 0, 0.22);
+  --shadow-lg: 0 24px 70px rgba(255, 179, 0, 0.32);
   --radius: 20px;
   --radius-sm: 10px;
   --transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  --card-solid: #152638;
-  --card-bg: rgba(20, 38, 58, 0.55);
-  --border-glow: rgba(212, 180, 131, 0.22);
+  --card-solid: #2B1E08;
+  --card-bg: rgba(48, 34, 11, 0.75);
+  --border-glow: rgba(255, 193, 7, 0.35);
 }
 
 /* ============================================================
@@ -245,9 +245,9 @@ ul {
 }
 
 .navbar.scrolled {
-  background: rgba(43, 29, 23, 0.92);
+  background: rgba(26, 17, 4, 0.94);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212, 180, 131, 0.1);
+  border-bottom: 1px solid rgba(255, 193, 7, 0.35);
   box-shadow: var(--shadow);
   padding: 10px 0;
 }
@@ -369,13 +369,13 @@ ul {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 35%, #14283C 0%, #0A1624 55%, #060E18 100%);
+  background: radial-gradient(circle at 50% 35%, #3E2B05 0%, #241A03 55%, #120C02 100%);
 }
 
 .hero-bg {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, rgba(8, 18, 28, 0.85) 0%, rgba(18, 42, 66, 0.65) 40%, rgba(72, 44, 22, 0.72) 75%, rgba(10, 18, 28, 0.88) 100%);
+  background: linear-gradient(135deg, rgba(20, 14, 3, 0.85) 0%, rgba(55, 38, 7, 0.70) 40%, rgba(255, 193, 7, 0.35) 75%, rgba(18, 12, 3, 0.90) 100%);
   z-index: 1;
   pointer-events: none;
   transform: translate3d(0, 0, 0);
@@ -633,7 +633,7 @@ ul {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background: rgba(43, 29, 23, 0.88);
+  background: rgba(26, 17, 4, 0.90);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(212, 160, 23, 0.4);
   border-radius: var(--radius-sm);
@@ -745,7 +745,7 @@ ul {
   backface-visibility: hidden;
   border-radius: var(--radius);
   border: 1px solid rgba(212, 160, 23, 0.18);
-  box-shadow: 0 4px 16px rgba(59, 42, 35, 0.05);
+  box-shadow: 0 4px 16px rgba(255, 179, 0, 0.18);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -814,7 +814,7 @@ ul {
   justify-content: center;
   border-radius: 50%;
   background: var(--white);
-  box-shadow: 0 4px 10px rgba(59, 42, 35, 0.08);
+  box-shadow: 0 4px 10px rgba(255, 179, 0, 0.22);
   border: 2px solid var(--gold-light);
   transition: transform var(--transition), border-color var(--transition);
 }
@@ -918,7 +918,7 @@ ul {
   border-color: rgba(212, 180, 131, 0.45);
   transform: translateY(-4px);
   box-shadow: var(--shadow);
-  background: rgba(140, 107, 90, 0.65);
+  background: rgba(68, 48, 14, 0.85);
 }
 
 .menu-item-icon {
@@ -1054,7 +1054,8 @@ ul {
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(212, 180, 131, 0.88) 0%, rgba(140, 107, 90, 0.88) 100%);
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.92) 0%, rgba(255, 143, 0, 0.94) 100%);
+  color: #1A1205;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -1142,7 +1143,7 @@ ul {
   border-color: var(--gold-dark);
   transform: translateX(4px);
   box-shadow: var(--shadow);
-  background: rgba(140, 107, 90, 0.65);
+  background: rgba(68, 48, 14, 0.85);
 }
 
 .contact-card.highlighted {
@@ -1542,7 +1543,7 @@ ul {
   transform: translateY(-4px);
   border-color: var(--gold);
   box-shadow: var(--shadow);
-  background: rgba(140, 107, 90, 0.65);
+  background: rgba(68, 48, 14, 0.85);
 }
 
 .testimonial-stars {
@@ -1646,7 +1647,7 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(43, 29, 23, 0.97);
+    background: rgba(24, 16, 3, 0.98);
     padding: 100px 32px;
     gap: 24px;
     z-index: 999;
@@ -1795,7 +1796,7 @@ ul {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(43, 29, 23, 0.96);
+  background: rgba(20, 13, 3, 0.97);
   z-index: 10000;
   display: none;
   align-items: center;
@@ -2113,7 +2114,7 @@ ul {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: radial-gradient(ellipse at center, #3a2519 0%, #1A110D 100%);
+  background: radial-gradient(ellipse at center, #3E2B05 0%, #120C02 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2299,7 +2300,7 @@ ul {
 .orb-2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, #8C6B5A 0%, transparent 70%);
+  background: radial-gradient(circle, #FF9800 0%, transparent 70%);
   top: 50%;
   right: -8%;
   animation: orbFloat2 25s ease-in-out infinite;
@@ -2424,9 +2425,9 @@ ul {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(circle at 50% 40%, rgba(255, 200, 100, 0.26) 0%, rgba(212, 140, 40, 0.12) 35%, transparent 70%),
-    radial-gradient(circle at 18% 75%, rgba(20, 100, 140, 0.38) 0%, transparent 55%),
-    radial-gradient(circle at 82% 25%, rgba(230, 160, 40, 0.22) 0%, transparent 50%);
+    radial-gradient(circle at 50% 40%, rgba(255, 215, 0, 0.35) 0%, rgba(255, 160, 0, 0.18) 35%, transparent 70%),
+    radial-gradient(circle at 18% 75%, rgba(255, 179, 0, 0.28) 0%, transparent 55%),
+    radial-gradient(circle at 82% 25%, rgba(255, 224, 130, 0.30) 0%, transparent 50%);
   pointer-events: none;
   animation: ambientPulse 8s ease-in-out infinite alternate;
 }
@@ -3052,7 +3053,7 @@ body.loading {
   transform: translate(-50%, -50%);
   width: 800px;
   height: 550px;
-  background: radial-gradient(ellipse at center, rgba(212, 180, 131, 0.10) 0%, rgba(25, 65, 100, 0.20) 45%, transparent 75%);
+  background: radial-gradient(ellipse at center, rgba(255, 193, 7, 0.22) 0%, rgba(255, 160, 0, 0.12) 45%, transparent 75%);
   pointer-events: none;
   z-index: 0;
 }
@@ -3281,7 +3282,7 @@ body.loading {
   position: relative;
   display: flex;
   align-items: center;
-  background: rgba(43, 29, 23, 0.8);
+  background: rgba(38, 25, 6, 0.85);
   border: 1px solid rgba(212, 180, 131, 0.3);
   border-radius: 99px;
   padding: 8px 18px;
@@ -3409,7 +3410,7 @@ body.loading {
 }
 
 .glass-modal {
-  background: rgba(43, 29, 23, 0.94);
+  background: rgba(28, 18, 5, 0.95);
   border: 1px solid rgba(212, 180, 131, 0.3);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7), 0 0 40px rgba(212, 180, 131, 0.15);
   border-radius: var(--radius);
@@ -3743,7 +3744,7 @@ body.loading {
 
 /* 1. Gold Text Metallic Shimmer */
 .gold-shimmer-text {
-  background: linear-gradient(110deg, #D4B483 0%, #F8F4EE 25%, #E2C8A4 50%, #BCA073 75%, #D4B483 100%);
+  background: linear-gradient(110deg, #FFC107 0%, #FFF8E7 25%, #FFD54F 50%, #FF9800 75%, #FFC107 100%);
   background-size: 250% auto;
   color: transparent;
   -webkit-background-clip: text;
@@ -3808,8 +3809,8 @@ body.loading {
 .click-ripple {
   position: fixed;
   border-radius: 50%;
-  border: 1px solid rgba(212, 180, 131, 0.45);
-  background: radial-gradient(circle, rgba(212, 180, 131, 0.12) 0%, rgba(140, 190, 214, 0.04) 50%, transparent 80%);
+  border: 1px solid rgba(255, 193, 7, 0.6);
+  background: radial-gradient(circle, rgba(255, 193, 7, 0.25) 0%, rgba(255, 160, 0, 0.08) 50%, transparent 80%);
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0.1);
   opacity: 0.9;
@@ -3844,11 +3845,12 @@ body.loading {
 .ocean-bubble {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(248, 244, 238, 0.3), rgba(212, 180, 131, 0.06) 60%, rgba(140, 190, 214, 0.02));
-  border: 1px solid rgba(212, 180, 131, 0.18);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 248, 231, 0.4), rgba(255, 193, 7, 0.12) 60%, rgba(255, 160, 0, 0.05));
+  border: 1px solid rgba(255, 193, 7, 0.35);
   box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
   pointer-events: none;
-  will-change: transform, opacity;
+  animation: floatBubble 14s linear infinite;
+  will-change: transform;
 }
 
 /* 5. Dynamic Audio Equalizer Bars */
