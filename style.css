@@ -4,29 +4,29 @@
    DESIGN TOKENS
    ============================================================ */
 :root {
-  --gold: #D8A268;
-  --gold-light: #E5C39E;
-  --gold-dark: #B57F48;
-  --brown: #F5EBE1;
-  --brown-mid: #D8A268;
-  --brown-light: #2C1D16;
-  --cream: #1C120C;
-  --cream-dark: #160E09;
-  --dark: #120A06;
-  --text-main: #F5EBE1;
-  --text-muted: #C4B2A0;
+  --gold: #E0A868;
+  --gold-light: #F2CFA6;
+  --gold-dark: #C88E4E;
+  --brown: #FFF5EB;
+  --brown-mid: #E0A868;
+  --brown-light: #4A3024;
+  --cream: #362219;
+  --cream-dark: #2A1A13;
+  --dark: #1E120D;
+  --text-main: #FFF5EB;
+  --text-muted: #D9C3B0;
   --white: #FFF9F5;
-  --cta: #C9935A;
-  --cta-light: #D8A268;
-  --cta-dark: #A87643;
-  --shadow: 0 10px 40px rgba(18, 10, 6, 0.65);
-  --shadow-lg: 0 24px 70px rgba(18, 10, 6, 0.85);
+  --cta: #D49B5B;
+  --cta-light: #E0A868;
+  --cta-dark: #B88042;
+  --shadow: 0 10px 40px rgba(25, 14, 9, 0.70);
+  --shadow-lg: 0 24px 70px rgba(25, 14, 9, 0.88);
   --radius: 20px;
   --radius-sm: 10px;
   --transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  --card-solid: #261912;
-  --card-bg: rgba(38, 25, 18, 0.75);
-  --border-glow: rgba(216, 162, 104, 0.28);
+  --card-solid: #452C20;
+  --card-bg: rgba(69, 44, 32, 0.85);
+  --border-glow: rgba(224, 168, 104, 0.35);
 }
 
 /* ============================================================
@@ -245,9 +245,9 @@ ul {
 }
 
 .navbar.scrolled {
-  background: rgba(28, 18, 12, 0.94);
+  background: rgba(42, 26, 19, 0.95);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(216, 162, 104, 0.25);
+  border-bottom: 1px solid rgba(224, 168, 104, 0.3);
   box-shadow: var(--shadow);
   padding: 10px 0;
 }
@@ -369,13 +369,13 @@ ul {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 35%, #38241B 0%, #231610 55%, #140D08 100%);
+  background: radial-gradient(circle at 50% 35%, #523527 0%, #362219 55%, #22140D 100%);
 }
 
 .hero-bg {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, rgba(28, 18, 12, 0.88) 0%, rgba(56, 36, 27, 0.70) 40%, rgba(201, 147, 90, 0.30) 75%, rgba(20, 13, 8, 0.92) 100%);
+  background: linear-gradient(135deg, rgba(54, 34, 25, 0.88) 0%, rgba(82, 53, 39, 0.72) 40%, rgba(212, 155, 91, 0.28) 75%, rgba(42, 26, 19, 0.94) 100%);
   z-index: 1;
   pointer-events: none;
   transform: translate3d(0, 0, 0);
@@ -633,7 +633,7 @@ ul {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  background: rgba(28, 18, 12, 0.90);
+  background: rgba(42, 26, 19, 0.92);
   color: var(--brown);
   box-shadow: var(--shadow);
   backdrop-filter: blur(8px);
@@ -763,8 +763,8 @@ ul {
 
 .pillar-card-back {
   transform: rotateY(180deg);
-  background: linear-gradient(135deg, rgba(58, 38, 28, 0.96) 0%, rgba(32, 21, 14, 0.98) 100%);
-  border: 1px solid rgba(216, 162, 104, 0.45);
+  background: linear-gradient(135deg, rgba(82, 53, 39, 0.96) 0%, rgba(54, 34, 25, 0.98) 100%);
+  border: 1px solid rgba(224, 168, 104, 0.45);
   color: var(--white);
 }
 
@@ -775,8 +775,8 @@ ul {
 .pillar-card-container:nth-child(4) .pillar-card-front,
 .pillar-card-container:nth-child(5) .pillar-card-front,
 .pillar-card-container:nth-child(6) .pillar-card-front {
-  background: linear-gradient(135deg, rgba(44, 29, 22, 0.90) 0%, rgba(28, 18, 12, 0.95) 100%);
-  border: 1px solid rgba(216, 162, 104, 0.28);
+  background: linear-gradient(135deg, rgba(69, 44, 32, 0.92) 0%, rgba(42, 26, 19, 0.96) 100%);
+  border: 1px solid rgba(224, 168, 104, 0.3);
 }
 
 /* Hover Shadows */
@@ -2096,7 +2096,7 @@ ul {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: radial-gradient(ellipse at center, #38241B 0%, #140D08 100%);
+  background: radial-gradient(ellipse at center, #523527 0%, #22140D 100%);
   display: flex;
   align-items: center;
   justify-content: center;
