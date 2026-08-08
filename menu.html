@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Copper Island - Full Official Menu PDF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #E0A868;
+      --gold-light: #F2CFA6;
+      --gold-dark: #C88E4E;
+      --bg-dark: #2C2621;
+      --card-bg: #4A3225;
+      --text-main: #FFF5EB;
+      --text-muted: #F5E6D3;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #2C2621;
+      color: #FFF5EB;
+      padding: 30px 20px;
+      line-height: 1.6;
+    }
+    .pdf-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: rgba(74, 50, 37, 0.96);
+      border: 2px solid #E0A868;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+    .pdf-header {
+      text-align: center;
+      border-bottom: 2px solid rgba(224, 168, 104, 0.4);
+      padding-bottom: 25px;
+      margin-bottom: 35px;
+    }
+    .pdf-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #FFFFFF;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .pdf-header p {
+      color: #F2CFA6;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+    .print-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 18px;
+    }
+    .btn-print {
+      background: #E0A868;
+      color: #1C1815;
+      border: none;
+      padding: 9px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
+    .btn-print:hover { background: #F2CFA6; }
+    
+    .menu-grid-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+      gap: 40px;
+    }
+    .menu-section-block {
+      margin-bottom: 30px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      color: #FFFFFF;
+      border-bottom: 2px solid #E0A868;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .menu-item-row {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed rgba(224, 168, 104, 0.2);
+    }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .item-name {
+      font-weight: 700;
+      color: #FFFFFF;
+      font-size: 1.05rem;
+    }
+    .item-badge {
+      font-size: 0.75rem;
+      color: #F2CFA6;
+      border: 1px solid rgba(242, 207, 166, 0.4);
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .item-desc {
+      font-size: 0.88rem;
+      color: #F5E6D3;
+      margin-top: 3px;
+    }
+
+    @media print {
+      body { background: #FFF; color: #000; padding: 0; }
+      .pdf-container { border: none; box-shadow: none; background: #FFF; color: #000; padding: 0; }
+      .pdf-header h1, .section-title, .item-name { color: #000 !important; }
+      .pdf-header p, .item-desc { color: #333 !important; }
+      .print-actions { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pdf-container">
+    <div class="pdf-header">
+      <h1>THE COPPER ISLAND</h1>
+      <p>Sorrento, BC — Official Full Menu PDF</p>
+      <div class="print-actions">
+        <button class="btn-print" onclick="window.print()">🖨️ Save as PDF / Print Full Menu</button>
+        <a href="index.html#menu" class="btn-print" style="background: transparent; color: #F2CFA6; border: 1px solid #E0A868;">← Back to Website</a>
+      </div>
+    </div>
+
+    <div class="menu-grid-columns">
+      <!-- COLUMN 1 -->
+      <div>
+        <div class="menu-section-block">
+          <h2 class="section-title">STARTERS 🥗</h2>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Crispy Calamari</span></div><div class="item-desc">Hand breaded, lightly dusted and fried squid served with red onions, tartar sauce and a lemon wedge.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Chicken Strips &amp; Fries</span></div><div class="item-desc">Classic crispy fried chicken strips and fries served with ranch, plum or honey mustard.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Chicken Wings (1lb)</span></div><div class="item-desc">Hot, honey hot, honey garlic, BBQ, sweet chili, cajun, salt &amp; pepper, teriyaki, maple chili or Copper Island blend.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Potato Skins (8)</span><span class="item-badge">GLUTEN FREE</span></div><div class="item-desc">Loaded with cheese, green onions, BBQ sauce and BBQ brisket, served with sour cream.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Copper Island Poutine</span></div><div class="item-desc">Homemade fries layered with cheese curds and poutine gravy.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Loaded Nachos</span></div><div class="item-desc">Loaded with cheese, olives, tomatoes, green onions, jalapeños, salsa and sour cream.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Shrimp Gyoza</span></div><div class="item-desc">Japanese shrimp dumplings served with dumpling sauce and sesame seeds.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Rustic Mussels</span><span class="item-badge">GLUTEN FREE</span></div><div class="item-desc">Mussels tossed with white wine, onion, tomato, bacon and cream. Served with garlic naan.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Parmesan Pork Bites (1lb)</span></div><div class="item-desc">Crispy pork bites, fried and dusted with parmesan cheese, served with a lemon wedge.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Mozzarella Sticks (6)</span></div><div class="item-desc">Breaded mozzarella cheese sticks, fried and served with ranch.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Cauliflower Bites</span></div><div class="item-desc">Crispy fried cauliflower heads served with sweet chili sauce.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Popcorn Chicken (8oz)</span></div><div class="item-desc">Breaded crispy chicken bites tossed with your choice of dip. Garnished with sesame seeds and green onion.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Homemade Samosas (4)</span></div><div class="item-desc">Your choice of chicken, beef, paneer or vegetable.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Waffle Fries</span></div><div class="item-desc">Crispy fried waffle fries topped with shredded cheese and green onions. Served with gravy.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Basket of Fries / Rings</span></div><div class="item-desc">French fries, Yam fries, Truffle fries, Onion rings.</div></div>
+        </div>
+
+        <div class="menu-section-block">
+          <h2 class="section-title">HANDHELDS 🍔</h2>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Beef Dip</span></div><div class="item-desc">Slow cooked beef with sauteed mushrooms, onions and cheddar on ciabatta with au jus.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">BLT Sandwich</span></div><div class="item-desc">Mayo, bacon, lettuce and tomato on white, brown or Danish rye bread.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Copper Island Club House</span></div><div class="item-desc">Chicken breast, tomato, lettuce and bacon on toasted bread.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Crispy Chicken Caesar Wrap</span></div><div class="item-desc">Caesar salad, homemade chicken strips, honey garlic sauce and sesame seeds in a tortilla.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Quesadilla</span></div><div class="item-desc">Grilled tortilla filled with cajun chicken, cheese, green onions, tomatoes, salsa and sour cream.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">California Crispy Chicken Burger</span></div><div class="item-desc">Crispy chicken breast, chipotle sauce, lettuce, tomato, coleslaw, avocado and cheddar.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Copper Island Loaded Beef Burger</span></div><div class="item-desc">Burger sauce, tomato, pickled onions, lettuce, pickles, bacon, mushroom and cheddar.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Copper Island Veggie Burger</span></div><div class="item-desc">Veggie patty, cheese, mayo, lettuce, tomato, coleslaw and avocado.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Copper Island Cheese Combo Burger</span></div><div class="item-desc">Burger sauce, lettuce, tomato, avocado, coleslaw, mozzarella, boursin cheese and cheddar.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Steak Sandwich</span><span class="item-badge">GRADE AAA</span></div><div class="item-desc">7 oz charbroiled striploin with arugula salad, chimichurri sauce and fried onions.</div></div>
+        </div>
+
+        <div class="menu-section-block">
+          <h2 class="section-title">SALADS &amp; SOUPS 🥗🍲</h2>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Rainforest Salad</span></div><div class="item-desc">Mixed greens, cucumber, tomato, avocado, hard boiled egg, sunflower seeds and feta with lemon dressing.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Caesar Salad</span></div><div class="item-desc">Crispy romaine, croutons and parmesan cheese tossed with caesar dressing. Served with garlic toast.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Blue Cheese Steak Salad</span><span class="item-badge">GRADE AAA</span></div><div class="item-desc">Mixed greens, cucumber, pickled onions, balsamic dressing and crumbled blue cheese with 7 oz striploin steak.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Roasted Beet Salad</span></div><div class="item-desc">Fresh greens, beets, pickled onions, chickpeas and feta cheese with citrus vinaigrette.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">French Onion Soup</span></div><div class="item-desc">Caramelized onions in savory beef broth, melted cheese, garlic toast.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Clam Chowder Soup</span></div><div class="item-desc">Creamy blend of tender clams, potatoes, and vegetables simmered in rich broth.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Cream of Mushroom</span></div><div class="item-desc">Blend of sautéed mushrooms in a rich, creamy broth. Served with garlic toast.</div></div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2 -->
+      <div>
+        <div class="menu-section-block">
+          <h2 class="section-title">MAINS &amp; STEAKS 🥩</h2>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Beer Battered Fish &amp; Chips</span></div><div class="item-desc">Cod served with fries, tartar sauce, coleslaw and a lemon wedge.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">New York Steak (8 oz)</span><span class="item-badge">GRASS FED</span></div><div class="item-desc">8 oz NY steak served with mashed potatoes, seasonal vegetables and bordelaise sauce.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Steak &amp; Seafood</span><span class="item-badge">GRADE AAA</span></div><div class="item-desc">6 oz top sirloin steak served with mashed potatoes and seasonal vegetables with demi-glace.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Rack of Lamb</span><span class="item-badge">CONTINENTAL / INDIAN</span></div><div class="item-desc">Slow cooked lamb rack served with mashed potatoes and mustard demi-glace.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Chicken Lettuce Wraps</span></div><div class="item-desc">Grilled chicken sautéed with bell peppers and onions in homemade sauce with lettuce cups and fries.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Darnasi Bagara Bowl</span></div><div class="item-desc">Chicken curry rice bowl with authentic bagara rice served with garlic naan.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Chicken Cordon Bleu</span></div><div class="item-desc">Breaded chicken breast stuffed with ham and swiss cheese. Served with fries.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Lamb Curry Bowl</span></div><div class="item-desc">Slow cooked lamb leg with Indian curry served with bagara rice and garlic naan.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Arctic Char</span><span class="item-badge">GLUTEN FREE</span></div><div class="item-desc">Pan fried crispy skin arctic char with potato salad and sauteed spinach with mushrooms and cream.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Chicken Parmesan</span></div><div class="item-desc">Breaded chicken served with parmesan cheese, tomato sauce and french fries.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Curried Prawns</span><span class="item-badge">GLUTEN FREE</span></div><div class="item-desc">Prawns, peppers, onion and curry cream, baked with mixed cheese. Served with bagara rice.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Chicken Teriyaki Bowl</span></div><div class="item-desc">Chicken breast sauteed in sesame oil, seasonal vegetables and teriyaki sauce with bagara rice.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Paneer Butter Masala</span></div><div class="item-desc">Soft paneer cheese cubes tossed in butter masala served with bagara rice and garlic naan.</div></div>
+        </div>
+
+        <div class="menu-section-block">
+          <h2 class="section-title">DAILY FEATURES 🌟</h2>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Monday: Beef Tagliatelle / Beef Dip</span></div><div class="item-desc">Slow cooked beef brisket with red wine and cognac tossed with fresh tagliatelle.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Tuesday: Chicken Alfredo / Steak Sandwich</span></div><div class="item-desc">Seasoned chicken breast tossed with cream and parmesan linguini. Or Grade AAA Steak Sandwich.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Wednesday: Seafood Pasta / 1lb Wings</span></div><div class="item-desc">Spaghetti with mussels, shrimp, scallops and alfredo. Or 1lb Chicken Wings.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Thursday: Penne Pomodoro / Steak Salad</span></div><div class="item-desc">Penne pomodoro with pork chop and cheese mix. Or Blue Cheese Steak Salad.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Friday: Spaghetti Bolognese / Prime Rib</span></div><div class="item-desc">Spaghetti bolognese | 2pc Fish &amp; Chips | Prime Rib Dinner with Yorkshire pudding.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Saturday: Spaghetti Al Pesto / NY Steak</span></div><div class="item-desc">Spaghetti pesto with grilled chicken | 8oz New York Steak.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Sunday: Spaghetti Carbonara / Chicken Parm</span></div><div class="item-desc">Spaghetti carbonara | Chicken Parmesan.</div></div>
+        </div>
+
+        <div class="menu-section-block">
+          <h2 class="section-title">KIDS MENU 🧒</h2>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Mini Margherita Pizza</span></div><div class="item-desc">Personal-size pizza with tomato sauce, mozzarella and fresh basil.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Crispy Chicken Strips</span></div><div class="item-desc">Golden-fried chicken tenders with honey mustard dipping sauce and fries.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Buttery Mac &amp; Cheese</span></div><div class="item-desc">Creamy macaroni in cheddar cheese sauce, baked golden on top.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Mini Fish &amp; Chips</span></div><div class="item-desc">Small portions of beer-battered cod with hand-cut fries and ketchup.</div></div>
+        </div>
+
+        <div class="menu-section-block">
+          <h2 class="section-title">DESSERTS &amp; DRINKS 🍹🍰</h2>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Molten Lava Cake</span></div><div class="item-desc">Rich chocolate cake with a warm, gooey center.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">New York Cheesecake</span></div><div class="item-desc">Classic baked cheesecake, smooth and creamy.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Sticky Toffee Pudding</span></div><div class="item-desc">Warm toffee pudding with rich, buttery caramel sauce.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Copper Island Mule</span></div><div class="item-desc">Vodka, fresh lime, and locally crafted ginger beer served in a copper mug.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Cocktails, Sangria &amp; Okanagan Craft Beers</span></div><div class="item-desc">Red/white sangria pitcher or glass, draft beers, local wines &amp; adult slushies.</div></div>
+          <div class="menu-item-row"><div class="item-head"><span class="item-name">Happy Hour (2PM - 5PM Daily &amp; All Day Sunday)</span></div><div class="item-desc">Special pricing on Onion Rings, Nachos, Potato Skins, Cauliflower Bites, Wings, Draft Beers &amp; Highballs.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

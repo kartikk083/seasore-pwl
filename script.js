@@ -43,52 +43,39 @@ if (!window.IntersectionObserver || window.location.protocol === 'file:') {
   revealElements.forEach(el => observer.observe(el));
 }
 
-// ===== MENU DATA =====
+// ===== MENU DATA (THE COPPER ISLAND CONCISE MENU) =====
 const menuData = {
   Starters: [
     { icon: '🦑', name: 'Crispy Calamari', desc: 'Hand breaded, lightly dusted and fried squid served with red onions, tartar sauce and a lemon wedge.' },
-    { icon: '🍗', name: 'Chicken Strips & Fries', desc: 'Classic crispy fried chicken strips and fries served with your choice of dip: ranch, plum or honey mustard.' },
-    { icon: '🍗', name: 'Chicken Wings (1lb)', desc: 'Hot, honey hot, honey garlic, BBQ, sweet chili, cajun spice, salt & pepper, teriyaki, maple chili or house blend.' },
-    { icon: '🥔', name: 'Potato Skins (8)', desc: 'Loaded with cheese, green onions, BBQ sauce and BBQ brisket, served with sour cream. Gluten free.' }
+    { icon: '🍗', name: 'Chicken Wings (1lb)', desc: 'Hot, honey garlic, BBQ, sweet chili, cajun spice, salt & pepper or Copper Island’s blend.' },
+    { icon: '🥔', name: 'Potato Skins (Gluten Free)', desc: 'Loaded with cheese, green onions, BBQ sauce and BBQ brisket, served with sour cream.' },
+    { icon: '🦪', name: 'Rustic Mussels (Gluten Free)', desc: 'Mussels tossed with white wine, onion, tomato, bacon and cream. Served with garlic naan.' },
+    { icon: '🥟', name: 'Shrimp Gyoza', desc: 'Japanese shrimp dumplings served with dumpling sauce and garnished with sesame seeds.' }
+  ],
+  Handhelds: [
+    { icon: '🥩', name: 'Beef Dip', desc: 'Slow cooked beef served with sauteed mushrooms, onions and cheddar cheese on ciabatta with au jus.' },
+    { icon: '🍔', name: 'Copper Island’s Loaded Beef Burger', desc: 'Copper Island’s burger sauce, tomato, pickled onions, lettuce, pickles, bacon, mushroom and cheddar.' },
+    { icon: '🍔', name: 'California Crispy Chicken Burger', desc: 'Homemade crispy chicken breast, chipotle sauce, lettuce, tomato, coleslaw, avocado and cheddar.' },
+    { icon: '🌯', name: 'Crispy Chicken Caesar Wrap', desc: 'Caesar salad, homemade chicken strips, honey garlic sauce and sesame seeds wrapped in a tortilla.' },
+    { icon: '🥩', name: 'Steak Sandwich (Grade AAA)', desc: '7 oz charbroiled striploin, topped with arugula salad, chimichurri sauce and fried onions.' }
   ],
   Mains: [
     { icon: '🐟', name: 'Fish & Chips', desc: 'Homemade beer battered cod served with fries, tartar sauce, coleslaw and a lemon wedge.' },
-    { icon: '🥬', name: 'Chicken Lettuce Wraps', desc: 'Grilled chicken sautéed with bell peppers and onions, tossed in a homemade blend of sauces. Served with fresh lettuce cups and fries.' },
+    { icon: '🥩', name: 'New York Steak 8oz (Grass Fed)', desc: '8 oz New York steak served with mashed potatoes, seasonal vegetables and bordelaise sauce.' },
     { icon: '🍛', name: 'Darnasi Bagara Bowl', desc: 'Chicken curry rice bowl with authentic bagara rice served with garlic naan.' },
-    { icon: '🍗', name: 'Chicken Cordon Bleu', desc: 'Crispy breaded chicken breast stuffed with ham and swiss cheese. Served with fries.' }
-  ],
-  Handhelds: [
-    { icon: '🥩', name: 'Beef Dip', desc: 'Slow cooked beef served with sautéed mushrooms, onions and cheddar cheese on ciabatta bread with au jus for dipping.' },
-    { icon: '🥪', name: 'BLT Sandwich', desc: 'Mayo, bacon, lettuce and tomato. Your choice of bread: white, brown or Danish rye bread.' },
-    { icon: '🥪', name: 'Club House', desc: 'Chicken breast, tomato, lettuce and bacon. Your choice of bread: white, brown or Danish rye bread.' },
-    { icon: '🌯', name: 'Crispy Chicken Caesar Wrap', desc: 'Caesar salad, homemade chicken strips, honey garlic sauce and sesame seeds wrapped in a tortilla.' }
-  ],
-  Salads: [
-    { icon: '🥗', name: 'Rainforest Salad', desc: 'Mixed greens, cucumber, tomato, avocado, hard boiled egg, sunflower seeds and feta tossed with lemon dressing.' },
-    { icon: '🥗', name: 'Caesar Salad', desc: 'Romaine, croutons, parmesan, caesar dressing, served with garlic toast.' },
-    { icon: '🥩', name: 'Blue Cheese Steak Salad', desc: 'Mixed greens, cucumber, pickled onions, balsamic dressing and crumbled blue cheese topped with a 7 oz striploin steak. Grade AAA.' },
-    { icon: '🥗', name: 'Roasted Beet Salad', desc: 'Fresh greens, beets, pickled onions, chickpeas and feta cheese tossed in a citrus vinaigrette.' }
-  ],
-  Soups: [
-    { icon: '🧅', name: 'French Onion Soup', desc: 'Slow-cooked caramelized onions in a savory beef broth, topped with melted cheese. Served with garlic toast.' },
-    { icon: '🥣', name: 'Clam Chowder', desc: 'Creamy blend of tender clams, potatoes, and vegetables simmered in a rich, seasoned broth.' },
-    { icon: '🍄', name: 'Cream of Mushroom', desc: 'Blend of sautéed mushrooms in a rich, creamy broth. Served with garlic toast.' }
-  ],
-  'Steak & Lamb': [
-    { icon: '🥩', name: 'New York Steak 8oz', desc: '8 oz New York steak served with mashed potatoes, seasonal vegetables and a bordelaise sauce. Grass fed.' },
-    { icon: '🥩', name: 'Steak and Seafood', desc: '6 oz top sirloin steak served with mashed potatoes and seasonal vegetables with demi-glace. Grade AAA.' },
-    { icon: '🍖', name: 'Rack of Lamb', desc: 'Slow cooked lamb rack served with mashed potatoes and seasonal vegetables with mustard demi-glace. Continental or Indian.' }
+    { icon: '🍗', name: 'Chicken Cordon Bleu', desc: 'Crispy breaded chicken breast stuffed with ham and swiss cheese. Served with fries.' },
+    { icon: '🍖', name: 'Lamb Curry Bowl', desc: 'Slow cooked lamb leg with authentic Indian curry served with bagara rice and garlic naan.' }
   ],
   Desserts: [
     { icon: '🍫', name: 'Molten Lava Cake', desc: 'Rich chocolate cake with a warm, gooey center.' },
     { icon: '🍰', name: 'New York Cheesecake', desc: 'Classic baked cheesecake, smooth and creamy.' },
     { icon: '🍮', name: 'Sticky Toffee Pudding', desc: 'Warm toffee pudding with rich, buttery caramel sauce.' }
   ],
-  Kids: [
-    { icon: '🍕', name: 'Mini Margherita Pizza', desc: 'Personal-size pizza with tomato sauce, mozzarella and fresh basil.' },
-    { icon: '🍗', name: 'Crispy Chicken Strips', desc: 'Golden-fried chicken tenders with honey mustard dipping sauce and fries.' },
-    { icon: '🍝', name: 'Buttery Mac & Cheese', desc: 'Creamy macaroni in cheddar cheese sauce, baked golden on top.' },
-    { icon: '🐟', name: 'Mini Fish & Chips', desc: 'Small portions of beer-battered cod with hand-cut fries and ketchup.' }
+  'Drinks & Cocktails': [
+    { icon: '🍹', name: 'Copper Island Mule', desc: 'Vodka, fresh lime, and locally crafted ginger beer served in a copper mug.' },
+    { icon: '🍸', name: 'Adult Slushy', desc: 'Your choice of slushy mixed with 1oz vodka, rum, gin or rye.' },
+    { icon: '🍷', name: 'Sangria (Glass / Pitcher)', desc: 'Red or white wine mixed with pineapple juice, 7up and peach schnapps.' },
+    { icon: '🍺', name: 'B.C. Craft Beer & Drafts', desc: 'Molson Canadian, Coors Light, Coors Original, Okanagan 1516, IPA, Stout.' }
   ]
 };
 
@@ -107,7 +94,9 @@ const pairingsMap = {
   Soups: 'Warm Garlic Naan & Chardonnay',
   'Steak & Lamb': 'Full-bodied Okanagan Cabernet Sauvignon',
   Desserts: 'Espresso or Sticky Port Wine',
-  Kids: 'Fresh Berry Smoothie or Apple Juice'
+  'Daily Features': 'Chef Special Pairing of the Day',
+  'Drinks & Cocktails': 'Fresh Citrus & Artisanal Garnishes',
+  'Happy Hour': 'Cold Okanagan Craft Beer'
 };
 
 function createMenuItemElement(item, category) {
@@ -230,16 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        // Radiant golden amber & soft coastal azure particle mix
-        const isGold = Math.sin(this.x) > -0.2;
-        if (isGold) {
-          ctx.fillStyle = `rgba(255, 215, 130, ${this.alpha * 1.2})`;
-          ctx.shadowBlur = this.size * 3;
-          ctx.shadowColor = 'rgba(255, 180, 50, 0.8)';
+        // Soft golden ambient dust & subtle coastal mist particle mix
+        const isWarm = Math.sin(this.x) > -0.2;
+        if (isWarm) {
+          ctx.fillStyle = `rgba(242, 207, 166, ${this.alpha * 0.25})`;
+          ctx.shadowBlur = 0;
         } else {
-          ctx.fillStyle = `rgba(120, 200, 245, ${this.alpha * 0.9})`;
-          ctx.shadowBlur = this.size * 3;
-          ctx.shadowColor = 'rgba(80, 180, 230, 0.7)';
+          ctx.fillStyle = `rgba(220, 235, 245, ${this.alpha * 0.25})`;
+          ctx.shadowBlur = 0;
         }
         ctx.fill();
       }
